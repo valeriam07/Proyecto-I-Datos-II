@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ProjectId" id="1ZaQni8fz1Lunthv49DCfBQfMtQ" />
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Proyecto-I-Datos-II" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunManager">
+    <configuration name="VSPointer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="VSPointer" TARGET_NAME="VSPointer" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="776" y="311" width="424" height="490" key="FileChooserDialogImpl" timestamp="1585075021522">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="311" width="424" height="490" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585075021522" />
+    <state x="826" y="347" width="324" height="418" key="svn.repositoryBrowser" timestamp="1585074947253">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="826" y="347" width="324" height="418" key="svn.repositoryBrowser/67.27.1853.1053@67.27.1853.1053" timestamp="1585074947253" />
+  </component>
+</project>
