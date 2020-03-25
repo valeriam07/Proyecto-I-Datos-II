@@ -44,10 +44,17 @@ RM = /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPointer
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug
+=======
+CMAKE_SOURCE_DIR = /home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +81,24 @@ preinstall:
 CMakeFiles/VSPointer.dir/all:
 	$(MAKE) -f CMakeFiles/VSPointer.dir/build.make CMakeFiles/VSPointer.dir/depend
 	$(MAKE) -f CMakeFiles/VSPointer.dir/build.make CMakeFiles/VSPointer.dir/build
+<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target VSPointer"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target VSPointer"
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 .PHONY : CMakeFiles/VSPointer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/VSPointer.dir/rule: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/VSPointer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/VSPointer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles 0
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 .PHONY : CMakeFiles/VSPointer.dir/rule
 
 # Convenience name for target.

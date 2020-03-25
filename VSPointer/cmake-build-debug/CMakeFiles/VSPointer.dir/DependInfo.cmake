@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+<<<<<<< HEAD
   "/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/library.cpp" "/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/VSPointer.dir/library.cpp.o"
+=======
+  "/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/library.cpp" "/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/VSPointer.dir/library.cpp.o"
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

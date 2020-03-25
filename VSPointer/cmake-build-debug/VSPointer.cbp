@@ -8,6 +8,7 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
+<<<<<<< HEAD
 				<Option working_dir="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
@@ -30,6 +31,30 @@
 			<Target title="VSPointer">
 				<Option output="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/libVSPointer.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+=======
+				<Option working_dir="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VSPointer">
+				<Option output="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/libVSPointer.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -44,6 +69,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
+<<<<<<< HEAD
 					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 VSPointer"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -53,6 +79,17 @@
 			<Target title="VSPointer/fast">
 				<Option output="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/libVSPointer.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+=======
+					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 VSPointer"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VSPointer/fast">
+				<Option output="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/libVSPointer.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -67,6 +104,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
+<<<<<<< HEAD
 					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 VSPointer/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -91,6 +129,32 @@
 			<Option target="VSPointer"/>
 		</Unit>
 		<Unit filename="/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/CMakeLists.txt">
+=======
+					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 VSPointer/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/library.cpp">
+			<Option target="VSPointer"/>
+		</Unit>
+		<Unit filename="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/library.h">
+			<Option target="VSPointer"/>
+		</Unit>
+		<Unit filename="/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/CMakeLists.txt">
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

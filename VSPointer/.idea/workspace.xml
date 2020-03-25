@@ -5,11 +5,18 @@
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1ZaQni8fz1Lunthv49DCfBQfMtQ" />
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Proyecto-I-Datos-II" />
+=======
+  <component name="ProjectId" id="1ZaUKsf2WcXV1Qq8uDM1y1fqDHz" />
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
@@ -19,6 +26,7 @@
       </method>
     </configuration>
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="776" y="311" width="424" height="490" key="FileChooserDialogImpl" timestamp="1585075021522">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -29,4 +37,6 @@
     </state>
     <state x="826" y="347" width="324" height="418" key="svn.repositoryBrowser/67.27.1853.1053@67.27.1853.1053" timestamp="1585074947253" />
   </component>
+=======
+>>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
 </project>
