@@ -1,6 +1,10 @@
 #ifndef VSPOINTER_LIBRARY_H
 #define VSPOINTER_LIBRARY_H
 #include <cstddef>
+#include <iostream>
+#include <unistd.h>
+
+using namespace std;
 
 template <class T>
 
@@ -26,6 +30,34 @@ public:
     T * operator -> (){
         return ptr;
     }
+
+    VSPtr operator = (VSPtr const c1){              //ARREGLAR
+        if (typeid(VSPtr) == typeid(c1)){
+                cout << "Son de tipo VSPtr" << endl;
+        }
+    }
+
+
+
+};
+
+class GarbageCollector{
+
+    public:
+    static GarbageCollector& getInstance(){
+        static GarbageCollector instance;
+        return instance;
+    }
+
+    private: 
+    GarbageCollector(){}
+    GarbageCollector(GarbageCollector const&);
+    void operator = (GarbageCollector const&);
+    void thread();
+
+    public:
+    GarbageCollector(GarbageCollector const&) = delete;
+    void operator = (GarbageCollector const&) = delete;
 
 
 };
