@@ -6,14 +6,49 @@
 
 using namespace std;
 
+static int VSPtrCount;
+
+class GarbageCollector{
+
+public:
+    static GarbageCollector* getInstance();
+    void saveAddress(int VSPtrCount, int* ptr);
+    int *addess[10];
+
+private: 
+    static GarbageCollector* instance;
+    GarbageCollector();
+    void thread();
+
+
+};
+
+GarbageCollector* GarbageCollector:: instance = 0;
+GarbageCollector* GarbageCollector :: getInstance(){
+     if(instance == 0){
+            instance = new GarbageCollector();
+        }
+
+        return instance;
+    
+}
+
+GarbageCollector::GarbageCollector(){}
+
+
 template <class T>
 
 class VSPtr{
     T *ptr;
 public: 
+
     //constructor
-    explicit VSPtr(T *p = NULL) {
-        ptr = p;
+    explicit VSPtr(T *p = NULL) {           //New()
+        ptr = p;  //ptr is the address 
+        GarbageCollector* g = GarbageCollector::getInstance();
+        VSPtrCount++;
+        cout << "VSPTR COUNT: " << VSPtrCount << endl;
+        g->saveAddress(VSPtrCount, ptr);
     }
 
     ~VSPtr(){
@@ -38,28 +73,8 @@ public:
     }
 
 
-
 };
 
-class GarbageCollector{
 
-    public:
-    static GarbageCollector& getInstance(){
-        static GarbageCollector instance;
-        return instance;
-    }
-
-    private: 
-    GarbageCollector(){}
-    GarbageCollector(GarbageCollector const&);
-    void operator = (GarbageCollector const&);
-    void thread();
-
-    public:
-    GarbageCollector(GarbageCollector const&) = delete;
-    void operator = (GarbageCollector const&) = delete;
-
-
-};
 
 #endif //VSPOINTER_LIBRARY_H

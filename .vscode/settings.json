@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "fstream": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "tuple": "cpp",
+        "typeinfo": "cpp"
     }
 }

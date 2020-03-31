@@ -9,9 +9,19 @@ void GarbageCollector :: thread(){
                 //garbage collector func
                 sleep(10000);
             }
-        }catch(std::exception const&){
+    }catch(std::exception const&){
             cout << "Error en el thread" << endl;
-        }
+    }
+}
+
+void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
+    GarbageCollector::addess[VSPtrCount-1] = ptr;
+
+    for(int i=0; i< (sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0])) && GarbageCollector::addess[i] != 0; i++){
+
+        cout << "ADDRESS (" << i<< ") " << GarbageCollector::addess[i] << endl;
+    }
+    
 }
 
 int main(){
