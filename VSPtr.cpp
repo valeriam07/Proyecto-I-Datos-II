@@ -1,5 +1,6 @@
 #include "VSPtr.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -19,10 +20,25 @@ void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
 
     for(int i=0; i< (sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0])) && GarbageCollector::addess[i] != 0; i++){
 
-        cout << "ADDRESS (" << i<< ") " << GarbageCollector::addess[i] << endl;
+        cout << "ADDRESS (" << i << ") " << GarbageCollector::addess[i] << endl;
     }
     
 }
+
+void GarbageCollector :: generateID(){
+
+    string ID = "VSPTR_" + to_string(VSPtrCount);
+    GarbageCollector::IDs[VSPtrCount-1] = ID;
+
+    for(int i=0; i< (sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0])) && GarbageCollector::addess[i] != 0; i++){
+
+        cout << "ID (" << i << ") " << GarbageCollector::IDs[i] << endl;
+    }
+    
+    
+}
+
+
 
 int main(){
     //VSPtr<int> myPtr = VSPtr<int> ::New();

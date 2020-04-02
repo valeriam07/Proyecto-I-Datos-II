@@ -14,11 +14,15 @@ public:
     static GarbageCollector* getInstance();
     void saveAddress(int VSPtrCount, int* ptr);
     int *addess[10];
+    string IDs[10];
+    void generateID();
 
 private: 
     static GarbageCollector* instance;
     GarbageCollector();
     void thread();
+    
+    
 
 
 };
@@ -35,11 +39,11 @@ GarbageCollector* GarbageCollector :: getInstance(){
 
 GarbageCollector::GarbageCollector(){}
 
-
 template <class T>
 
 class VSPtr{
     T *ptr;
+
 public: 
 
     //constructor
@@ -49,6 +53,8 @@ public:
         VSPtrCount++;
         cout << "VSPTR COUNT: " << VSPtrCount << endl;
         g->saveAddress(VSPtrCount, ptr);
+        g->generateID();
+        
     }
 
     ~VSPtr(){
@@ -74,6 +80,7 @@ public:
 
 
 };
+
 
 
 
