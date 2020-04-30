@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "arbol",
+		"Nreferencias": 2
+    },
+    {
+        "id": 2,
+        "nombre": "flor",
+		"Nreferencias": 3
+	},
+	{
+        "id": 3,
+        "nombre": "aguacate",
+		"Nreferencias":8
+	},
+	{
+        "id": 4,
+        "nombre": "lizano",
+		"Nreferencias":0
+    }
+   
+]
