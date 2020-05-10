@@ -19,6 +19,7 @@
 		"url": "https://github.com/microsoft/vscode-extension-samples.git"
 	},
 	"main": "./out/extension.js",
+	"gypfile": true,
 	"contributes": {
 		"commands": [
 			{
@@ -37,13 +38,18 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"lint": "tslint -p ./",
-		"watch": "tsc -w -p ./"
+		"watch": "tsc -w -p ./",
+		"build": "node-gyp rebuild",
+		"clean": "node-gyp clean"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"node-addon-api": "^3.0.0"
+	},
 	"devDependencies": {
 		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.38.0",
+		"node-gyp": "^6.1.0",
 		"tslint": "^5.19.0",
-		"typescript": "^3.8.3",
-		"@types/vscode": "^1.38.0"
+		"typescript": "^3.8.3"
 	}
 }

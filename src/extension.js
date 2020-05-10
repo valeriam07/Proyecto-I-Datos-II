@@ -1,36 +1,34 @@
 "use strict";
+/*  PROBANDO NODEJS-C++
+const catCoding = require('../build/Release/catcoding.node');
+console.log('addon',catCoding);
+module.exports = catCoding;
+*/
 exports.__esModule = true;
 var vscode = require("vscode");
-var cats = {
-    'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
-    'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif'
-};
 function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', function () {
+        // Create and show panel
         var panel = vscode.window.createWebviewPanel('catCoding', 'Cat Coding', vscode.ViewColumn.One, {});
-        var iteration = 0;
-        var updateWebview = function () {
-            var cat = iteration++ % 2 ? 'Compiling Cat' : 'Coding Cat';
-            panel.title = cat;
-            panel.webview.html = getWebviewContent(cat);
-        };
-        // Set initial content
-        updateWebview();
-        // And schedule updates to the content every second
-        setInterval(updateWebview, 1000);
+        // And set its HTML content
+        panel.webview.html = getWebviewContent();
     }));
 }
 exports.activate = activate;
-function getcontent() {
+function getWebviewContent() {
+    return "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\" integrity=\"sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB\"\n        crossorigin=\"anonymous\">\n    <title>Cat Coding</title>\n</head>\n<body>\n<div class=\"container my-5 text-center\">\n\n<div class=\"mt-5\">\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <th scope=\"col\">ID</th>\n                <th scope=\"col\">Tipo.D</th>\n                <th scope=\"col\">Valor.D</th>\n                <th scope=\"col\">Ubi.Memoria</th>\n                <th scope=\"col\">Numero de ref</th>\n            </tr>\n        </thead>\n        <tbody id=\"contenido\">\n            \n        </tbody>\n    </table>\n</div>\n\n    <img src=\"https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif\" width=\"300\" />\n</body>\n</html>";
+}
+/*
+var contenido = document.querySelector('#contenido')
+  function traer() {
     fetch('content.json')
-        .then(function (res) { return res.json(); })
-        .then(function (datos) {
-        console.log(datos);
-    });
-}
-function getWebviewContent(cat) {
-    return "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Cat Coding</title>\n</head>\n\n<body>\n\t  <h1>Titulo</h1>\n    <img src=\"" + cats[cat] + "\" />\n</body>\n\n<script>\n</script>\n</html>";
-}
+        .then(res => {
+          console.log(res)
+
+        })
+    
+  }
+*/
 /*
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below

@@ -1,6 +1,12 @@
-
+/*  PROBANDO NODEJS-C++
+const catCoding = require('../build/Release/catcoding.node');
+console.log('addon',catCoding);
+module.exports = catCoding;
+*/
 
 import * as vscode from 'vscode';
+
+
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
