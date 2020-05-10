@@ -1,9 +1,12 @@
-/*  PROBANDO NODEJS-C++
+// PROBANDO NODEJS-C++
 const catCoding = require('../build/Release/catcoding.node');
 console.log('addon',catCoding);
++console.log(catCoding.hello());
 module.exports = catCoding;
-*/
 
+
+
+/*
 import * as vscode from 'vscode';
 
 
@@ -59,6 +62,29 @@ function getWebviewContent() {
 </body>
 </html>`;
 }
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 var contenido = document.querySelector('#contenido')
