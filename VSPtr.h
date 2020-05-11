@@ -49,7 +49,7 @@ public:
     int key;
 
     //constructor
-    explicit VSPtr(T *p = NULL) {           //New()
+    explicit VSPtr(T *p = NULL) {          
         ptr = p;  //ptr is the address 
         GarbageCollector* g = GarbageCollector::getInstance();
         VSPtrCount++;
