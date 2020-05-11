@@ -40,6 +40,8 @@ GarbageCollector* GarbageCollector :: getInstance(){
 
 GarbageCollector::GarbageCollector(){}
 
+//________________________________VSPOINTER__________________________________
+
 template <class T>
 
 class VSPtr{
@@ -47,6 +49,7 @@ class VSPtr{
 
 public: 
     int key;
+    int references;
 
     //constructor
     explicit VSPtr(T *p = NULL) {          
@@ -68,17 +71,22 @@ public:
 
     //Overloading deferencing operator 
     T & operator * (){
-        return *ptr;
+      this->references ++;
+      return *ptr;
     }
 
     //Overloading arrow operator, members of T can be accessed like a 
     //pointer
     T * operator -> (){
-        return ptr;
+      this->references ++;
+      return ptr;
     }
 
 
     VSPtr operator = (VSPtr ptr){  
+      //this->references ++;  
+      ptr.references ++;
+
       GarbageCollector* g = GarbageCollector::getInstance();
 
       cout << "------ USING = OPERAND ------" << endl;
