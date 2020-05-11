@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 void GarbageCollector :: thread(){
     try{
             while(true){
