@@ -8,23 +8,24 @@ using namespace std;
 
 static int VSPtrCount;
 
+// ___________________________GARBAGE COLLECTOR_____________________________
+
 class GarbageCollector{
 
 public:
-    static GarbageCollector* getInstance();
-    void saveAddress(int VSPtrCount, int* ptr);
-    int *addess[10];
-    string IDs[10];
+    static GarbageCollector* getInstance();     //retorna el numero de instancias de un VSPtr
+    void saveAddress(int VSPtrCount, int* ptr);     // guardado del puntero
+    int *addess[10];        //lista de direcciones
+    string IDs[10];         //lista de ID
     void generateID();
+    string getID(int key);
+    int* getAdress(int key);
 
 private: 
     static GarbageCollector* instance;
     GarbageCollector();
     void thread();
     
-    
-
-
 };
 
 GarbageCollector* GarbageCollector:: instance = 0;
@@ -45,6 +46,7 @@ class VSPtr{
     T *ptr;
 
 public: 
+    int key;
 
     //constructor
     explicit VSPtr(T *p = NULL) {           //New()
@@ -52,6 +54,7 @@ public:
         GarbageCollector* g = GarbageCollector::getInstance();
         VSPtrCount++;
         cout << "VSPTR COUNT: " << VSPtrCount << endl;
+        key = VSPtrCount-1;
         g->saveAddress(VSPtrCount, ptr);
         g->generateID();
         
@@ -60,6 +63,8 @@ public:
     ~VSPtr(){
         delete(ptr);
     }
+
+    string ID;
 
     //Overloading deferencing operator 
     T & operator * (){
@@ -72,12 +77,22 @@ public:
         return ptr;
     }
 
-    VSPtr operator = (VSPtr const c1){              //ARREGLAR
-        if (typeid(VSPtr) == typeid(c1)){
-                cout << "Son de tipo VSPtr" << endl;
-        }
-    }
 
+    VSPtr operator = (VSPtr ptr){  
+      GarbageCollector* g = GarbageCollector::getInstance();
+
+      cout << "------ USING = OPERAND ------" << endl;
+      cout << "ACTUAL ID: " << g->getID(this->key) << endl;
+      cout << "ACTUAL ADDRESS: " << g->getAdress(this->key) << "\n" << endl;
+
+      g->IDs[this->key] = g->getID(ptr.key); //reemplaza el id del elemento izquierdo por una copia del id del elemento derecho
+      g->addess[this->key] = g->getAdress(ptr.key); //reemplaza el address del elemento izquierdo por una copia del address del elemento derecho
+
+      cout << "NEW ID: " << g->getID(this->key) << endl;
+      cout << "NEW ADDRESS: " << g->getAdress(this->key) << endl;
+
+
+    }
 
 };
 
