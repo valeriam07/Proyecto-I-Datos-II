@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <iostream>
 #include <unistd.h>
+#include <thread>
 
 using namespace std;
 
@@ -11,20 +12,22 @@ static int VSPtrCount;
 // ___________________________GARBAGE COLLECTOR_____________________________
 
 class GarbageCollector{
-
+    
 public:
     static GarbageCollector* getInstance();     //retorna el numero de instancias de un VSPtr
     void saveAddress(int VSPtrCount, int* ptr);     // guardado del puntero
     int *addess[10];        //lista de direcciones
     string IDs[10];         //lista de ID
+    int references[10];
     void generateID();
     string getID(int key);
     int* getAdress(int key);
+    thread freeMemory();
 
 private: 
     static GarbageCollector* instance;
     GarbageCollector();
-    void thread();
+    
     
 };
 
@@ -49,7 +52,7 @@ class VSPtr{
 
 public: 
     int key;
-    int references;
+    int VSPReference;
 
     //constructor
     explicit VSPtr(T *p = NULL) {          
@@ -60,6 +63,8 @@ public:
         key = VSPtrCount-1;
         g->saveAddress(VSPtrCount, ptr);
         g->generateID();
+        g->references[key] = VSPReference;
+        //thread t(g->freeMemory);          //ARREGLAR
         
     }
 
@@ -71,21 +76,21 @@ public:
 
     //Overloading deferencing operator 
     T & operator * (){
-      this->references ++;
+      this->VSPReference ++;
       return *ptr;
     }
 
     //Overloading arrow operator, members of T can be accessed like a 
     //pointer
     T * operator -> (){
-      this->references ++;
+      this->VSPReference ++;
       return ptr;
     }
 
 
     VSPtr operator = (VSPtr ptr){  
-      //this->references ++;  
-      ptr.references ++;
+      //this->references ++;      //ARREGLAR A QUIEN SE LE SUMA LA REFERENCIA?
+      ptr.VSPReference ++;
 
       GarbageCollector* g = GarbageCollector::getInstance();
 

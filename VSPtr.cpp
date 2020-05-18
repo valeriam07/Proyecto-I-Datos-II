@@ -2,13 +2,20 @@
 #include <iostream>
 #include <fstream>
 
+
 using namespace std;
 
-void GarbageCollector :: thread(){
+thread GarbageCollector :: freeMemory(){
     try{
-            while(true){
+            
                 //garbage collector func
-                sleep(10000);
+                for(int i=0; i< (sizeof(GarbageCollector::references))/(sizeof(GarbageCollector::references[0])) && GarbageCollector::references[i] != 0; i++){
+
+                    if(GarbageCollector::references[i] = 0){
+                        delete GarbageCollector::addess[i];
+                        cout << "ELIMINADO" << addess[i] << endl;
+                    }
+
             }
     }catch(std::exception const&){
             cout << "Error en el thread" << endl;
@@ -49,6 +56,7 @@ int* GarbageCollector::getAdress(int key){
     return GarbageCollector::addess[key];
 }
 
+
 int main(){
     //VSPtr<int> myPtr = VSPtr<int> ::New();
  
@@ -58,5 +66,6 @@ int main(){
     *ptr2 =30;
     ptr = ptr2;
     return 0;
+
 
 }

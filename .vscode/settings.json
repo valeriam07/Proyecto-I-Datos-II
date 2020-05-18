@@ -38,6 +38,7 @@
         "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "thread": "cpp"
     }
 }
