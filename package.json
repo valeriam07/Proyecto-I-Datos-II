@@ -1,55 +1,62 @@
 {
-	"name": "cat-coding",
-	"description": "Cat Coding - A Webview API Sample",
-	"version": "0.0.1",
-	"publisher": "vscode-samples",
-	"engines": {
-		"vscode": "^1.38.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:catCoding.start",
-		"onCommand:catCoding.doRefactor",
-		"onWebviewPanel:catCoding"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/microsoft/vscode-extension-samples.git"
-	},
-	"main": "./out/extension.js",
-	"gypfile": true,
-	"contributes": {
-		"commands": [
-			{
-				"command": "catCoding.start",
-				"title": "Start cat coding session",
-				"category": "Cat Coding"
-			},
-			{
-				"command": "catCoding.doRefactor",
-				"title": "Do some refactoring",
-				"category": "Cat Coding"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "tslint -p ./",
-		"watch": "tsc -w -p ./",
-		"build": "node-gyp rebuild",
-		"clean": "node-gyp clean"
-	},
-	"dependencies": {
-		"node-addon-api": "^3.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^12.12.0",
-		"@types/vscode": "^1.38.0",
-		"node-gyp": "^6.1.0",
-		"tslint": "^5.19.0",
-		"typescript": "^3.8.3"
-	}
+ "name": "proyecto-i-datos-ii",
+ "version": "1.0.0",
+ "description": "En este repositorio se encuentra el proceso de implementacion de una extension de Visual Studio Code para  el manejo de memoria.",
+ "main": "src/index.js",
+ "gypfile": true,
+ "contributes": {
+  "commands": [
+   {
+    "command": "testaddon.start",
+    "title": "test addon coding session",
+    "category": "testaddon"
+   },
+   {
+    "command": "testaddon.doRefactor",
+    "title": "Do some refactoring",
+    "category": "testaddon"
+   }
+  ]
+ },
+ "engines": {
+  "vscode": "^1.38.0"
+ },
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "node-gyp rebuild",
+  "clean": "node-gyp clean",
+  "vscode:prepublish": "npm run compile",
+  "compile": "tsc -p ./",
+  "lint": "tslint -p ./",
+  "watch": "tsc -w -p ./"
+ },
+ "categories": [
+  "Other"
+ ],
+ "activationEvents": [
+  "onCommand:testaddon.start",
+  "onCommand:testaddon.doRefactor",
+  "onWebviewPanel:testaddon"
+ ],
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/valeriam07/Proyecto-I-Datos-II.git"
+ },
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/valeriam07/Proyecto-I-Datos-II/issues"
+ },
+ "homepage": "https://github.com/valeriam07/Proyecto-I-Datos-II#readme",
+ "devDependencies": {
+  "@types/node": "^12.12.41",
+  "@types/vscode": "^1.38.0",
+  "node-gyp": "^6.1.0",
+  "tslint": "^5.19.0",
+  "typescript": "^3.8.3"
+ },
+ "dependencies": {
+  "node-addon-api": "^3.0.0",
+  "vscode": "^1.1.37"
+ }
 }

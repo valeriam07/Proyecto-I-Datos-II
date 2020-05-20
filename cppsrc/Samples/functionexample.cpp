@@ -2,6 +2,17 @@
 std::string functionexample::hello(){
   return "Hello World";
 }
+
+
+
+
+
+
+
+
+
+
+
 Napi::String functionexample::HelloWrapped(const Napi::CallbackInfo& info) 
 {
   Napi::Env env = info.Env();

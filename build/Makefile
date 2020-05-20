@@ -303,13 +303,13 @@ $(obj).$(TOOLSET)/%.o: $(obj)/%.s FORCE_DO_CMD
 
 ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
     $(findstring $(join ^,$(prefix)),\
-                 $(join ^,catcoding.target.mk)))),)
-  include catcoding.target.mk
+                 $(join ^,node_modules/node-addon-api/nothing.target.mk)))),)
+  include node_modules/node-addon-api/nothing.target.mk
 endif
 ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
     $(findstring $(join ^,$(prefix)),\
-                 $(join ^,node_modules/node-addon-api/nothing.target.mk)))),)
-  include node_modules/node-addon-api/nothing.target.mk
+                 $(join ^,testaddon.target.mk)))),)
+  include testaddon.target.mk
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@

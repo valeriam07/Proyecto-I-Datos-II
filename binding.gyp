@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "catcoding",
+        "target_name": "testaddon",
         "cflags!": [ "-fno-exceptions" ],
         "cflags_cc!": [ "-fno-exceptions" ],
         "sources": [
