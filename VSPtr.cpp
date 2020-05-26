@@ -5,21 +5,29 @@
 
 using namespace std;
 
-thread GarbageCollector :: freeMemory(){
+void GarbageCollector :: freeMemory(){
+    std::cout<< "Entro a Free Memory" << std::endl;
+     std::cout<< "Entro a Free Memory" << std::endl;
+
     try{
-            
-                //garbage collector func
-                for(int i=0; i< (sizeof(GarbageCollector::references))/(sizeof(GarbageCollector::references[0])) && GarbageCollector::references[i] != 0; i++){
 
-                    if(GarbageCollector::references[i] = 0){
-                        delete GarbageCollector::addess[i];
-                        cout << "ELIMINADO" << addess[i] << endl;
-                    }
+        while(true){
 
+            for(int i=0; i< (int)((sizeof(GarbageCollector::references))/(sizeof(GarbageCollector::references[0]))) && GarbageCollector::references[i] != 0; i++) {
+
+                if ((GarbageCollector::references[i] = 0)) {
+                    delete GarbageCollector::addess[i];
+                    cout << "ELIMINADO" << addess[i] << endl;
+                }
+
+                sleep(10000);
             }
+
+        }
     }catch(std::exception const&){
             cout << "Error en el thread" << endl;
     }
+
 }
 
 void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
@@ -56,9 +64,18 @@ int* GarbageCollector::getAdress(int key){
     return GarbageCollector::addess[key];
 }
 
+void foo()
+{
+    std::cout<< "Foo" << std::endl;
+}
 
 int main(){
     //VSPtr<int> myPtr = VSPtr<int> ::New();
+    //GarbageCollector::getInstance();
+
+    GarbageCollector *g = GarbageCollector::getInstance();
+    thread t(g->freeMemory);
+    t.join();
  
     VSPtr<int> ptr(new int());
     *ptr = 20;
