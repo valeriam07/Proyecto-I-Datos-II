@@ -1,12 +1,13 @@
 #include "VSPtr.h"
 #include <iostream>
 #include <fstream>
+#include "clientsocket.h"
 
 
 using namespace std;
 
 void GarbageCollector :: freeMemory(){
-    std::cout<< "Entro a Free Memory" << std::endl;
+
      std::cout<< "Entro a Free Memory" << std::endl;
 
     try{
@@ -64,24 +65,21 @@ int* GarbageCollector::getAdress(int key){
     return GarbageCollector::addess[key];
 }
 
-void foo()
-{
-    std::cout<< "Foo" << std::endl;
-}
-
 int main(){
     //VSPtr<int> myPtr = VSPtr<int> ::New();
     //GarbageCollector::getInstance();
 
     GarbageCollector *g = GarbageCollector::getInstance();
-    thread t(g->freeMemory);
-    t.join();
+    //thread t(g->freeMemory);
+    //t.join();
  
-    VSPtr<int> ptr(new int());
+    /*VSPtr<int> ptr(new int());
     *ptr = 20;
     VSPtr<int> ptr2(new int());
     *ptr2 =30;
-    ptr = ptr2;
+    ptr = ptr2;*/
+
+    init_client();
     return 0;
 
 
