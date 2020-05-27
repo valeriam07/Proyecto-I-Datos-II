@@ -1,6 +1,0 @@
-#ifndef VSPOINTER_LIBRARY_H
-#define VSPOINTER_LIBRARY_H
-
-void hello();
-
-#endif //VSPOINTER_LIBRARY_H

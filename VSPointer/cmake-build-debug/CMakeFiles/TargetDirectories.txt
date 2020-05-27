@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/VSPointer.dir
-/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/edit_cache.dir
-=======
-/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/VSPointer.dir
-/home/valeria/CLionProjects/Proyecto-I-Datos-II/VSPointer/cmake-build-debug/CMakeFiles/edit_cache.dir
->>>>>>> 6475a65d82d86ba03a77b2e594bfb8c5eda7e167
