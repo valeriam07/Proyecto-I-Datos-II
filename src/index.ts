@@ -20,16 +20,17 @@ export function activate(context: vscode.ExtensionContext) {
     //console.log(data);
 
     const prueb = require('../build/Release/testaddon.node');
-    console.log(prueb.hello());
+    console.log(prueb.getId());
+  
     module.exports = prueb;
 
     
       
 
-    //const hello = prueb.hello();
+    const hello = prueb.hello();
 
       // And set its HTML content
-      panel.webview.html = getWebviewContent(data);
+      panel.webview.html = getWebviewContent(hello);
     })
   );
 }
@@ -37,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 //${hello}
-function getWebviewContent(data: any) {
+function getWebviewContent(hello: any) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,13 +48,14 @@ function getWebviewContent(data: any) {
         crossorigin="anonymous">
     <title>Cat Coding</title>
 </head>
+<h1>${hello}</h1>
 <script>
 
 table = document.getElementById("table");
 const vscode = acquireVsCodeApi();
 
 function tabla(){
-  var dato = ${data};
+
 
 
   var table = document.getElementById("contenido");
