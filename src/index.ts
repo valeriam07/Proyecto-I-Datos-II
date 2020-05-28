@@ -22,12 +22,17 @@ export function activate(context: vscode.ExtensionContext) {
     
       // get resource
 
+      
+
       const filePath: vscode.Uri = vscode.Uri.file(
       path.join(context.extensionPath,'src', 'index.html'));
       
       panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
-    
-     // panel.webview.html = getWebviewContent();
+
+
+      //leer json
+      
+
 
     })
   );

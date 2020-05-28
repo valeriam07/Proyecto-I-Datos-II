@@ -9,18 +9,29 @@
 <h1></h1>
 <script>
 table = document.getElementById("table");
-const vscode = acquireVsCodeApi();
-function tabla(){
-  var table = document.getElementById("contenido");
+
+function traer(){
+    console.log("entra")
+    var table = document.getElementById("contenido");
+  contenido.innerHTML = ''
   for(i = 0; i< 4; i++){
-    var row = table.insertRow(0);
+    contenido.innerHTML += `
+    <tr>
+              <th scope = "row">1</th>
+              <td>saludo</td>
+              <td>char</td>
+              <td>hola</td>
+          </tr>
+    
+    `
+
   }
-  
 }
 </script>
 <body>
-<h1></h1>
-<div class="container my-5 text-center">
+    
+ <div class="container my-5 text-center">
+        <button class="btn btn-danger w-100" onclick="traer()">usar servidor</button>
 <div class="mt-5">
     <table class="table">
         <thead>
@@ -32,15 +43,23 @@ function tabla(){
             </tr>
         </thead>
         <tbody id="contenido">
-          <tr>
-              <th scope = "row">1</th>
-              <td>saludo</td>
-              <td>char</td>
-              <td>hola</td>
-          </tr>
+          
         </tbody>
     </table>
 </div>
   
 </body>
 </html>
+
+<!--
+
+
+
+     <TR>
+        <TD> <INPUT pasword="person[fname]"> </TD>
+        <TD> <INPUT name="person[lname]"> </TD>
+        <TD> <INPUT Server="person[birthdate]"> </TD>
+        <TD> <INPUT IP="person[birthdate]"> </TD>
+        <TD> <INPUT Port="person[birthdate]"> </TD>
+    </TR>
+-->

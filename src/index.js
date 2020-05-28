@@ -7,17 +7,20 @@ function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('testaddon.start', function () {
         // Create and show panel
         var panel = vscode.window.createWebviewPanel('testaddon', 'test addon', vscode.ViewColumn.One, {});
-        var testAddon = require('../build/Release/testaddon.node');
-        console.log('hello ', testAddon.hello());
-        console.log('add ', testAddon.add(5, 10));
-        module.exports = testAddon;
         // get resource
         var filePath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'index.html'));
         panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
-        // panel.webview.html = getWebviewContent();
+        //leer json
     }));
 }
 exports.activate = activate;
+/*
+    const testAddon = require('../build/Release/testaddon.node');
+
+    console.log('hello ', testAddon.hello());
+    console.log('add ', testAddon.add(5, 10));
+    module.exports = testAddon;
+*/
 //${hello}
 /*
     const prueb = require('../build/Release/testaddon.node');
