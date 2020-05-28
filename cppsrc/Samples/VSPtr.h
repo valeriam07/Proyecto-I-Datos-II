@@ -1,6 +1,4 @@
 #include <napi.h>
-#ifndef VSPOINTER_LIBRARY_H
-#define VSPOINTER_LIBRARY_H
 #include <cstddef>
 #include <iostream>
 #include <unistd.h>
@@ -10,6 +8,19 @@ using namespace std;
 
 
 
+class GarbageCollector {
+ public:
+  GarbageCollector(double value);
+   double getValue();
+  double add(double toAdd);
+ private:
+  double value_;
+};
+
+
+
+
+/*
 static int VSPtrCount;
 
 // ___________________________GARBAGE COLLECTOR_____________________________
@@ -123,7 +134,7 @@ public:
 
 #endif //VSPOINTER_LIBRARY_H
 
-
+*/
 
 
 

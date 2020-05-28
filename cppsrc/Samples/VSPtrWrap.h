@@ -10,8 +10,8 @@ class VSWrap : public Napi::ObjectWrap<VSWrap> {
 
  private:
   static Napi::FunctionReference constructor;
-  Napi::Value getId(const Napi::CallbackInfo& info);
-  Napi::Value getAdress(const Napi::CallbackInfo& info);
+  Napi::Value GetValue(const Napi::CallbackInfo& info);
+  Napi::Value Add(const Napi::CallbackInfo& info);
   GarbageCollector *garbageCollector_;
 };
 

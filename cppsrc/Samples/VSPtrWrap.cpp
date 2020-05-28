@@ -8,9 +8,10 @@ Napi::Object VSWrap::Init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
 
   Napi::Function func = DefineClass(env, "VSWrap", {
-    InstanceMethod("getID", &VSWrap::getId),
-    InstanceMethod("getADRESS", &VSWrap::getAdress),
+    InstanceMethod("add", &VSWrap::Add),
+    InstanceMethod("getValue", &VSWrap::GetValue),
   });
+
 
   constructor = Napi::Persistent(func);
   constructor.SuppressDestruct();
