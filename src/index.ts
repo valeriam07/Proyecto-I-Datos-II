@@ -16,13 +16,26 @@ export function activate(context: vscode.ExtensionContext) {
         'testaddon',
         'test addon',
         vscode.ViewColumn.One,
-        {}  
+        {
+          enableScripts: true,
+          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+        }  
+    );
+
+    panel.webview.onDidReceiveMessage(
+      message => {
+        switch (message.command) {
+          case 'alert':
+            vscode.window.showErrorMessage(message.text);
+            return;
+        }
+      },
+      undefined,
+      context.subscriptions
     );
      
     
       // get resource
-
-      
 
       const filePath: vscode.Uri = vscode.Uri.file(
       path.join(context.extensionPath,'src', 'index.html'));
@@ -31,9 +44,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 
       //leer json
-      
 
-
+      // Handle messages from the webview
     })
   );
 }

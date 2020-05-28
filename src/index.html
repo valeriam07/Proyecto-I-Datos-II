@@ -6,11 +6,72 @@
         crossorigin="anonymous">
     <title>Cat Coding</title>
 </head>
-<h1></h1>
-<script>
-table = document.getElementById("table");
+
+
+
+
+<p id="demo"></p>
+<h1 id="lines-of-code-counter">0</h1>
+
+    <script>
+        (function() {
+            const vscode = acquireVsCodeApi();
+            const counter = document.getElementById('lines-of-code-counter');
+
+            let count = 0;
+            setInterval(() => {
+                counter.textContent = count++;
+
+                // Alert the extension when our cat introduces a bug
+                if (Math.random() < 0.001 * count) {
+                    vscode.postMessage({
+                        command: 'alert',
+                        text: '🐛  on line ' + count
+                    })
+                }
+            }, 100);
+        }())
+    </script>
+<body>
+ <div class="container my-5 text-center">
+        <button class="btn btn-danger w-100" onclick="traer()">usar servidor</button>
+<div class="mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">AK7</th>
+                <th scope="col">Tipo.D</th>
+                <th scope="col">Valor.D</th>
+                <th scope="col">Ubi.Memoria</th>
+            </tr>
+        </thead>
+        <tbody id="contenido">  
+        </tbody>
+    </table>
+
+
+<form id="frml" action="index.ts">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    <br>
+
+    <input type="button" onclick="myFunction()" value="Submit">
+    <button onclick="myFunction()">Try it</button>
+
+
+
+</div>
+  
+</body>
+</html>
+
+<!--
+
+const table = document.getElementById("table");
 
 function traer(){
+    const vscode = acquireVsCodeApi();
+
     console.log("entra")
     var table = document.getElementById("contenido");
   contenido.innerHTML = ''
@@ -25,41 +86,4 @@ function traer(){
     
     `
 
-  }
-}
-</script>
-<body>
-    
- <div class="container my-5 text-center">
-        <button class="btn btn-danger w-100" onclick="traer()">usar servidor</button>
-<div class="mt-5">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">AK7</th>
-                <th scope="col">Tipo.D</th>
-                <th scope="col">Valor.D</th>
-                <th scope="col">Ubi.Memoria</th>
-            </tr>
-        </thead>
-        <tbody id="contenido">
-          
-        </tbody>
-    </table>
-</div>
-  
-</body>
-</html>
-
-<!--
-
-
-
-     <TR>
-        <TD> <INPUT pasword="person[fname]"> </TD>
-        <TD> <INPUT name="person[lname]"> </TD>
-        <TD> <INPUT Server="person[birthdate]"> </TD>
-        <TD> <INPUT IP="person[birthdate]"> </TD>
-        <TD> <INPUT Port="person[birthdate]"> </TD>
-    </TR>
 -->

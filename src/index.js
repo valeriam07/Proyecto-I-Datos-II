@@ -6,11 +6,22 @@ var vscode = require("vscode");
 function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('testaddon.start', function () {
         // Create and show panel
-        var panel = vscode.window.createWebviewPanel('testaddon', 'test addon', vscode.ViewColumn.One, {});
+        var panel = vscode.window.createWebviewPanel('testaddon', 'test addon', vscode.ViewColumn.One, {
+            enableScripts: true,
+            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+        });
+        panel.webview.onDidReceiveMessage(function (message) {
+            switch (message.command) {
+                case 'alert':
+                    vscode.window.showErrorMessage(message.text);
+                    return;
+            }
+        }, undefined, context.subscriptions);
         // get resource
         var filePath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'index.html'));
         panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
         //leer json
+        // Handle messages from the webview
     }));
 }
 exports.activate = activate;
