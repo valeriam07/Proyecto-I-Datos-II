@@ -21,11 +21,15 @@ export function activate(context: vscode.ExtensionContext) {
           localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
         }  
     );
-
+    //-------------------------------------------------------------------------------------------------panel.webview.postMessage
+        console.log("hola");
     panel.webview.onDidReceiveMessage(
+      
       message => {
         switch (message.command) {
           case 'alert':
+            const prueba= "pruebaaaa";
+            
             vscode.window.showErrorMessage(message.text);
             return;
         }
@@ -35,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
      
     
-      // get resource
+      //----------------------------------------------------------------------------------------------get resource
 
       const filePath: vscode.Uri = vscode.Uri.file(
       path.join(context.extensionPath,'src', 'index.html'));

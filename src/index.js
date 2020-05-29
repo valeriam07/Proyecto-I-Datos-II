@@ -10,14 +10,17 @@ function activate(context) {
             enableScripts: true,
             localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
         });
+        //-------------------------------------------------------------------------------------------------panel.webview.postMessage
+        console.log("hola");
         panel.webview.onDidReceiveMessage(function (message) {
             switch (message.command) {
                 case 'alert':
+                    var prueba = "pruebaaaa";
                     vscode.window.showErrorMessage(message.text);
                     return;
             }
         }, undefined, context.subscriptions);
-        // get resource
+        //----------------------------------------------------------------------------------------------get resource
         var filePath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'index.html'));
         panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
         //leer json
