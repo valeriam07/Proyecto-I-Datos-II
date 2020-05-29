@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 
-     char name[] = {"serverrr"};
+     char name[] = {"VSPtrServer"};
      sethostname(name, strlen(name));
 
      cout<< "HOST " << gethostname << endl;
@@ -46,18 +46,25 @@ int main(int argc, char *argv[]){
 
      bzero(buffer,256);
 
-     n = read(newsockfd,arr,256);
+
+    while (true) {
+        n = read(newsockfd, buffer, 256);
 
 
-     if (n < 0){
-          error("ERROR reading from socket");
-     }
+        if (n < 0) {
+            error("ERROR reading from socket");
+        }
 
-     printf("Here is the message: %s\n",buffer);
+        printf("Here is the message: %s\n", buffer);
 
-     n = write(newsockfd,"I got your message",18);
+        cout << "enter response" << endl;
+        cin >> buffer;
 
-     if (n < 0) error("ERROR writing to socket");
+        n = write(newsockfd, buffer, strlen(buffer));
+
+        if (n < 0) error("ERROR writing to socket");
+    }
+
      close(newsockfd);
      close(sockfd);
 
