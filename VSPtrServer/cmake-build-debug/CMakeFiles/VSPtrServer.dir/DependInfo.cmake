@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/valeria/CLionProjects/VSPtrServer/main.cpp" "/home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles/VSPtrServer.dir/main.cpp.o"
+  "/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/main.cpp" "/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles/VSPtrServer.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

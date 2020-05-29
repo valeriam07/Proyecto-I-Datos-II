@@ -1,4 +1,4 @@
-# Install script for directory: /home/valeria/CLionProjects/VSPtrServer
+# Install script for directory: /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

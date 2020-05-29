@@ -48,10 +48,10 @@ RM = /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/valeria/CLionProjects/VSPtrServer
+CMAKE_SOURCE_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

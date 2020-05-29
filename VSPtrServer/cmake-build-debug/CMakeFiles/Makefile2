@@ -44,10 +44,10 @@ RM = /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/valeria/CLionProjects/VSPtrServer
+CMAKE_SOURCE_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ preinstall:
 CMakeFiles/VSPtrServer.dir/all:
 	$(MAKE) -f CMakeFiles/VSPtrServer.dir/build.make CMakeFiles/VSPtrServer.dir/depend
 	$(MAKE) -f CMakeFiles/VSPtrServer.dir/build.make CMakeFiles/VSPtrServer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target VSPtrServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target VSPtrServer"
 .PHONY : CMakeFiles/VSPtrServer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/VSPtrServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/VSPtrServer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/CLionProjects/VSPtrServer/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/VSPtrServer.dir/rule
 
 # Convenience name for target.

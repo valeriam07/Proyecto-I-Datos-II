@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/main.cpp
+iostream
+-
+serversocket.h
+/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/serversocket.h
+
+/home/valeria/Documents/Proyecto-I-Datos-II/VSPtrServer/serversocket.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+

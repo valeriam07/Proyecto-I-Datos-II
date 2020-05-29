@@ -20,7 +20,7 @@ int init_client()
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    char buffer[256]= {"hola como estas"};
+    char buffer[256];
     
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) 
@@ -43,19 +43,23 @@ int init_client()
     serv_addr.sin_port = htons(portno);
     serv_addr.sin_addr.s_addr = INADDR_ANY;
 
-    cout << connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) << endl;
     
     if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0){ 
         error("ERROR connecting");
     }
 
-    printf("Please enter the message: ");
-    bzero(buffer,256);
-    fgets(buffer,255,stdin);
-    n = write(sockfd,buffer,strlen(buffer));
+
+    cout << "Please enter the message: " << endl;
+    cin >> buffer;
+
+    n = write(sockfd, buffer,5);
+
+
     if (n < 0) 
          error("ERROR writing to socket");
     bzero(buffer,256);
+
+
     n = read(sockfd,buffer,255);
     if (n < 0) 
          error("ERROR reading from socket");
