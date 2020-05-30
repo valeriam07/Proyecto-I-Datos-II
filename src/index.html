@@ -15,10 +15,32 @@
 <h1 id="lines-of-code-counter">0</h1>
 
     <script>
-        (
+        function msg() {
+            var namem= "alo";
+            var sub= document.getElementById("name").value;
+            var values= document.getElementById("frml").elements;
+            var value = values[0];
+
+            salida.innerHTML= `
             
-        function() {
+            <h1>${sub}</h1>
             
+            
+            `
+            var x = document.getElementById("frm1");
+            var text = "";
+            var i=0;
+            for (i = 0; i < x.length ;i++) {
+                text += x.elements[i].value + "<br>";
+               
+                 }
+                 document.getElementById("demo").innerHTML = text;
+
+            
+                        }
+        const name = window.prompt("Enter your name: ");
+
+        (function() {
             const vscode = acquireVsCodeApi();
             const table = document.getElementById("table");
             const counter = document.getElementById('lines-of-code-counter');
@@ -26,10 +48,9 @@
             let a = 0;
             setInterval(() => {
                 var table = document.getElementById("contenido");
+                
                 counter.textContent = count++;
                 
-
-
                 while(a<5){
                 a++;
                 contenido.innerHTML += `
@@ -41,28 +62,31 @@
                     </tr>
             
                     `
-}
-                
-                
+                }              
 
                 // Alert the extension when our cat introduces a bug
                 if (Math.random() < 0.001 * count) {
                     console.log("adios");
-                   
                     
+                    vscode.postMessage({
+                        command: 'alert',
+                        text: '🐛  on line ' + count
+                    }) 
                 }
+
+                
+
             }, 100);
         }
         ())
     </script>
 <body>
  <div class="container my-5 text-center">
-        <button class="btn btn-danger w-100" onclick="traer()">usar servidor</button>
 <div class="mt-5">
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">AK7</th>
+                <th scope="col">Dato</th>
                 <th scope="col">Tipo.D</th>
                 <th scope="col">Valor.D</th>
                 <th scope="col">Ubi.Memoria</th>
@@ -72,16 +96,17 @@
         </tbody>
     </table>
 
+<h1 id= "salida"></h1>
+<p id="demo"></p>
 
-<form id="frml" action="index.ts">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
+<form class = "mt-5" id="frml" enctype='src/UserData.json'>
+
+    password: <input id ="name" type="text" name="password">
     <br>
-
-    <input type="button" onclick="myFunction()" value="Submit">
-    <button onclick="myFunction()">Try it</button>
-
-
+   
+</form>
+<input  class="btn btn-danger w-100" type="button" value="submit" onclick="msg()">
+    
 
 </div>
   
@@ -89,7 +114,7 @@
 </html>
 
 <!--
-
+<button onclick="myFunction()">Try it</button>
 const table = document.getElementById("table");
 
 function traer(){

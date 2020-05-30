@@ -10,14 +10,28 @@ function activate(context) {
             enableScripts: true,
             localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
         });
+        //---------------------------------------------------------------------------------------------------JSON
+        var fileName = './UserData.json';
+        var file = require(fileName);
+        var password = file.password;
+        //JSON.stringify(file, null, 0)
+        console.log('antes: ' + file.password);
+        file.password = "4545";
+        //Serialize as JSON and Write it to a file
+        fs.writeFileSync(fileName, JSON.stringify(file));
+        console.log('despues: ' + file.password);
+        console.log(file.password);
+        console.log(file);
         //-------------------------------------------------------------------------------------------------panel.webview.postMessage
+        var server = true;
         console.log("hola");
-        panel.webview.onDidReceiveMessage(function (message) {
-            switch (message.command) {
-                case 'alert':
-                    var prueba = "pruebaaaa";
-                    vscode.window.showErrorMessage(message.text);
+        panel.webview.onDidReceiveMessage(function (form) {
+            switch (form.command) {
+                case 1:
+                    var prueba = "5";
+                    vscode.window.showErrorMessage(form.text);
                     return;
+                case 2:
             }
         }, undefined, context.subscriptions);
         //----------------------------------------------------------------------------------------------get resource

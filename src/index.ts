@@ -21,17 +21,44 @@ export function activate(context: vscode.ExtensionContext) {
           localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
         }  
     );
+    
+//---------------------------------------------------------------------------------------------------JSON
+    
+    const fileName = './UserData.json';
+    const file = require(fileName);
+    const password = file.password;
+
+
+    //JSON.stringify(file, null, 0)
+    console.log('antes: '+file.password);
+    
+    file.password = "4545";
+    //Serialize as JSON and Write it to a file
+    fs.writeFileSync(fileName, JSON.stringify(file));
+   console.log('despues: '+file.password);
+   console.log(file.password);
+   console.log(file);
+
     //-------------------------------------------------------------------------------------------------panel.webview.postMessage
-        console.log("hola");
+   
+   
+   
+   
+   
+    const server = true;
+    console.log("hola");
     panel.webview.onDidReceiveMessage(
-      
-      message => {
-        switch (message.command) {
-          case 'alert':
-            const prueba= "pruebaaaa";
+    
+      form => {
+        switch (form.command) {
+          case 1 :
+            const prueba= "5";
             
-            vscode.window.showErrorMessage(message.text);
+            vscode.window.showErrorMessage(form.text);
             return;
+          case 2 :
+            
+          
         }
       },
       undefined,
@@ -53,6 +80,9 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 }
+
+
+
 
 /* 
     const testAddon = require('../build/Release/testaddon.node');
