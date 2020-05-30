@@ -13,8 +13,22 @@
 
 <p id="demo"></p>
 <h1 id="lines-of-code-counter">0</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+  $("button").click(function(){
+    $.getJSON("UserData.js", function(result){
+      $.each(result, function(i, field){
+        $("div").append(field + " ");
+      });
+    });
+  });
+});
+</script>
 
-    <script>
+    <script type="text/javascript">
+ 
+
         function msg() {
             var namem= "alo";
             var sub= document.getElementById("name").value;
