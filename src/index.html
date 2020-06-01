@@ -15,32 +15,45 @@
 <h1 id="lines-of-code-counter">0</h1>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-  $("button").click(function(){
-    $.getJSON("UserData.js", function(result){
-      $.each(result, function(i, field){
-        $("div").append(field + " ");
-      });
-    });
-  });
-});
+   
 </script>
 
     <script type="text/javascript">
+    "use strict";
+    function UseServer(){
+        const fs = require(fs);
+        fs.readFile('./UserData.json', 'utf-8', (err,jsonString) =>{
+            const read = jsonString.password;
+            const ready= "ready";
+        })
+
+        salida.innerHTML += `
+        <h1>${read}</h1>
+    `
+
+
+    }
+//-------------------------------------------------------------------------------------------UPDATE JSON
+            
+
+
+ //-----------------------------------------------------------------------------------------USANDO SERVER      
  
 
-        function msg() {
-            var namem= "alo";
+        function UpdateJson() {
+            
+            
+            //const fileName= "UserData.json";
+            //let file = require(fileName);
+
+
+          
             var sub= document.getElementById("name").value;
             var values= document.getElementById("frml").elements;
             var value = values[0];
+            
 
-            salida.innerHTML= `
-            
-            <h1>${sub}</h1>
-            
-            
-            `
+           
             var x = document.getElementById("frm1");
             var text = "";
             var i=0;
@@ -52,15 +65,24 @@
 
             
                         }
-        const name = window.prompt("Enter your name: ");
+        
+//---------------------------------------------------------------------------------------RESULTADOS
 
-        (function() {
+        function Results(){
+
+            (function() {
             const vscode = acquireVsCodeApi();
             const table = document.getElementById("table");
             const counter = document.getElementById('lines-of-code-counter');
             let count = 0;
             let a = 0;
+            var namem= "alo";
+            salida.innerHTML += `
+        <h1>${namem}</h1>
+    `;
             setInterval(() => {
+
+                
                 var table = document.getElementById("contenido");
                 
                 counter.textContent = count++;
@@ -69,30 +91,18 @@
                 a++;
                 contenido.innerHTML += `
                     <tr>
+                    
                     <th scope = "row">1</th>
                     <td>saludo</td>
                     <td>char</td>
                     <td>hola</td>
                     </tr>
-            
                     `
                 }              
-
                 // Alert the extension when our cat introduces a bug
-                if (Math.random() < 0.001 * count) {
-                    console.log("adios");
-                    
-                    vscode.postMessage({
-                        command: 'alert',
-                        text: '🐛  on line ' + count
-                    }) 
-                }
-
-                
-
             }, 100);
         }
-        ())
+        ())}
     </script>
 <body>
  <div class="container my-5 text-center">
@@ -106,8 +116,7 @@
                 <th scope="col">Ubi.Memoria</th>
             </tr>
         </thead>
-        <tbody id="contenido">  
-        </tbody>
+        <tbody id="contenido"></tbody>
     </table>
 
 <h1 id= "salida"></h1>
@@ -115,15 +124,17 @@
 
 <form class = "mt-5" id="frml" enctype='src/UserData.json'>
 
-    password: <input id ="name" type="text" name="password">
     <br>
    
 </form>
-<input  class="btn btn-danger w-100" type="button" value="submit" onclick="msg()">
-    
 
+<input  class="btn btn-danger w-100" type="button" value="Using Server" onclick="UseServer()"> 
+<br>
+<input  class="btn btn-danger w-100" type="button" value="Send Request" onclick="UpdateJson()">
+<br>
+<input  class="btn btn-danger w-100" type="button" value="Results" onclick="Results()">
+    
 </div>
-  
 </body>
 </html>
 
@@ -147,5 +158,16 @@ function traer(){
           </tr>
     
     `
+
+
+
+    if (Math.random() < 0.001 * count) {
+                    console.log("adios");
+                    
+                    vscode.postMessage({
+                        command: 'alert',
+                        text: '🐛  on line ' + count
+                    }) 
+                }
 
 -->

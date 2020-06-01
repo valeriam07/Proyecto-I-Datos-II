@@ -23,7 +23,12 @@ function activate(context) {
         console.log(file.password);
         console.log(file);
         //-------------------------------------------------------------------------------------------------panel.webview.postMessage
-        var server = true;
+        var testAddon = require('../build/Release/testaddon.node');
+        console.log(file.password);
+        console.log('addon', testAddon);
+        // console.log('add', testAddon.add(5, 10));
+        module.exports = testAddon;
+        var server = "acepto";
         console.log("hola");
         panel.webview.onDidReceiveMessage(function (form) {
             switch (form.command) {
@@ -37,6 +42,7 @@ function activate(context) {
         //----------------------------------------------------------------------------------------------get resource
         var filePath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'index.html'));
         panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
+        server;
         //leer json
         // Handle messages from the webview
     }));

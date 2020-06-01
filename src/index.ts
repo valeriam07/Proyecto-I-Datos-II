@@ -1,12 +1,9 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-
-
-
-
-
 import * as vscode from 'vscode';
+
+
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand('testaddon.start', () => {
@@ -21,6 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
           localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
         }  
     );
+    
+    
     
 //---------------------------------------------------------------------------------------------------JSON
     
@@ -40,12 +39,18 @@ export function activate(context: vscode.ExtensionContext) {
    console.log(file);
 
     //-------------------------------------------------------------------------------------------------panel.webview.postMessage
+    const testAddon = require('../build/Release/testaddon.node');
+    console.log(file.password);
+    console.log('addon',testAddon);
+   // console.log('add', testAddon.add(5, 10));
+
+    module.exports = testAddon;
+    
    
    
    
    
-   
-    const server = true;
+    const server = "acepto";
     console.log("hola");
     panel.webview.onDidReceiveMessage(
     
@@ -68,10 +73,14 @@ export function activate(context: vscode.ExtensionContext) {
     
       //----------------------------------------------------------------------------------------------get resource
 
+      
+
       const filePath: vscode.Uri = vscode.Uri.file(
       path.join(context.extensionPath,'src', 'index.html'));
       
       panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
+
+      server;
 
 
       //leer json
