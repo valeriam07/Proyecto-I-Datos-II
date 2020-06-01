@@ -11,12 +11,13 @@ int main(int argc, char *argv[]){
      sethostname(name, strlen(name));
 
      cout<< "HOST " << gethostname << endl;
-
      int sockfd, newsockfd;
-     int portno = 2001;
+     int portno = 2000;
      socklen_t clilen;
      char buffer[256];
-     int* arr[10];
+     char ids[200];
+     char ptrs[200];
+     char values[200];
      struct sockaddr_in serv_addr, cli_addr;
      int n;
 
@@ -46,27 +47,26 @@ int main(int argc, char *argv[]){
 
      bzero(buffer,256);
 
-
-    while (true) {
-        n = read(newsockfd, buffer, 256);
-
+        n = read(newsockfd, ids, 256);
 
         if (n < 0) {
             error("ERROR reading from socket");
         }
 
-        printf("Here is the message: %s\n", buffer);
+        n = read(newsockfd, ptrs, 256);
 
-        cout << "enter response" << endl;
-        cin >> buffer;
+        if (n < 0) {
+            error("ERROR reading from socket");
+        }
 
-        n = write(newsockfd, buffer, strlen(buffer));
+        n = read(newsockfd, values, 256);
 
-        if (n < 0) error("ERROR writing to socket");
-    }
+        if (n < 0) {
+            error("ERROR reading from socket");
+        }
 
-     close(newsockfd);
-     close(sockfd);
+        printf("Here is the message: %s\n", ids);
+        printf("Here is the message: %s\n", ptrs);
+        printf("Here is the message: %s\n", values);
 
-     return 0; 
 }

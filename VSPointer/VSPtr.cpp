@@ -77,9 +77,9 @@ int main(){
     *ptr = 20;
     VSPtr<int> ptr2(new int());
     *ptr2 =30;
-    ptr = ptr2;
+    //ptr = ptr2;
 
-    //init_client();
+    init_client();
     return 0;
 
 
