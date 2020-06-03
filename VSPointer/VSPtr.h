@@ -25,6 +25,9 @@ public:
     string getID(int key);
     int *getAdress(int key);
     static void freeMemory();
+    int* getAddressList(){
+        return *addess;
+    }
 
 private:
     static GarbageCollector *instance;
