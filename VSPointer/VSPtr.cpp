@@ -3,8 +3,11 @@
 #include <fstream>
 #include "clientsocket.h"
 
-
 using namespace std;
+
+VSPtr<int> ptr(new int());
+VSPtr<int> ptr2(new int());
+
 
 void GarbageCollector :: freeMemory(){
 
@@ -31,13 +34,15 @@ void GarbageCollector :: freeMemory(){
 
 }
 
-void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
+void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr, int val){
     GarbageCollector::addess[VSPtrCount-1] = ptr;
 
     for(int i=0; i< (sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0])) && GarbageCollector::addess[i] != 0; i++){
 
         cout << "ADDRESS (" << i << ") " << GarbageCollector::addess[i] << endl;
     }
+    
+
     
 }
 
@@ -69,7 +74,7 @@ int main(){
     //VSPtr<int> myPtr = VSPtr<int> ::New();
     //GarbageCollector::getInstance();
 
-    GarbageCollector *g = GarbageCollector::getInstance();
+    /*GarbageCollector *g = GarbageCollector::getInstance();
     //thread t(g->freeMemory);
     //t.join();
  
@@ -79,7 +84,7 @@ int main(){
     *ptr2 =30;
     //ptr = ptr2;
 
-    init_client();
+    //init_client();*/
     return 0;
 
 
