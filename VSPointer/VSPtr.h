@@ -16,7 +16,7 @@ class GarbageCollector
 
 public:
     static GarbageCollector *getInstance();     //retorna el numero de instancias de un VSPtr
-    void saveAddress(int VSPtrCount, int *ptr, int val); // guardado del puntero
+    void saveAddress(int VSPtrCount, int *ptr); // guardado del puntero
     static int *addess[10];                     //lista de direcciones
     string IDs[10];                             //lista de ID
     static int values[10];
@@ -27,6 +27,12 @@ public:
     static void freeMemory();
     int* getAddressList(){
         return *addess;
+    }
+    int setValues(){
+
+        for(int j = 0; j < VSPtrCount ; j++){
+                GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
+            }
     }
 
 private:
@@ -74,13 +80,9 @@ public:
         VSPtrCount++;
         cout << "VSPTR COUNT: " << VSPtrCount << endl;
         key = VSPtrCount - 1;
-        g->saveAddress(VSPtrCount, ptr, *ptr);
+        g->saveAddress(VSPtrCount, ptr);
         g->generateID();
         g->references[key] = VSPReference;
-
-        //auto f =
-
-        //ARREGLAR
     }
 
     ~VSPtr()
@@ -94,7 +96,6 @@ public:
     T &operator*()
     {
         this->VSPReference++;
-        GarbageCollector::values[VSPtrCount-1] = *ptr;
         return *ptr;
     }
 
@@ -108,21 +109,26 @@ public:
 
     VSPtr operator=(VSPtr ptr)
     {
-        //this->references ++;      //ARREGLAR A QUIEN SE LE SUMA LA REFERENCIA?
+        GarbageCollector *g = GarbageCollector::getInstance();
+        g->setValues();
+
+        for(int j = 0; j < VSPtrCount ; j++){
+                cout <<"DATA (" << j << ") " << GarbageCollector::values[j] << endl;
+            }
+            
         ptr.VSPReference++;
 
-        GarbageCollector *g = GarbageCollector::getInstance();
 
         cout << "------ USING = OPERAND ------" << endl;
         cout << "ACTUAL ID: " << g->getID(this->key) << endl;
-        cout << "ACTUAL ADDRESS: " << g->getAdress(this->key) << "\n"
-             << endl;
+        cout << "ACTUAL DATA: " << GarbageCollector::values[this->key] << endl;
 
         g->IDs[this->key] = g->getID(ptr.key);        //reemplaza el id del elemento izquierdo por una copia del id del elemento derecho
-        g->addess[this->key] = g->getAdress(ptr.key); //reemplaza el address del elemento izquierdo por una copia del address del elemento derecho
+        **this = *ptr;
+        g->setValues();
 
         cout << "NEW ID: " << g->getID(this->key) << endl;
-        cout << "NEW ADDRESS: " << g->getAdress(this->key) << endl;
+        cout << "NEW DATA: " << g->values[this->key] << endl;
     }
 };
 

@@ -5,13 +5,8 @@
 
 using namespace std;
 
-VSPtr<int> ptr(new int());
-VSPtr<int> ptr2(new int());
-
 
 void GarbageCollector :: freeMemory(){
-
-     std::cout<< "Entro a Free Memory" << std::endl;
 
     try{
 
@@ -24,7 +19,7 @@ void GarbageCollector :: freeMemory(){
                     cout << "ELIMINADO" << addess[i] << endl;
                 }
 
-                sleep(10000);
+                sleep(1000);
             }
 
         }
@@ -34,7 +29,7 @@ void GarbageCollector :: freeMemory(){
 
 }
 
-void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr, int val){
+void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
     GarbageCollector::addess[VSPtrCount-1] = ptr;
 
     for(int i=0; i< (sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0])) && GarbageCollector::addess[i] != 0; i++){
@@ -71,20 +66,17 @@ int* GarbageCollector::getAdress(int key){
 }
 
 int main(){
-    //VSPtr<int> myPtr = VSPtr<int> ::New();
-    //GarbageCollector::getInstance();
 
-    /*GarbageCollector *g = GarbageCollector::getInstance();
+    GarbageCollector *g = GarbageCollector::getInstance();
     //thread t(g->freeMemory);
     //t.join();
  
     VSPtr<int> ptr(new int());
     *ptr = 20;
     VSPtr<int> ptr2(new int());
-    *ptr2 =30;
-    //ptr = ptr2;
-
-    //init_client();*/
+    *ptr2 = 30;
+    ptr = ptr2;
+    
     return 0;
 
 
