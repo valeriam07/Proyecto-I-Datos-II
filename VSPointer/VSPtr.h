@@ -50,8 +50,7 @@ public:
             std::stringstream ss;
             ss << address;  
             std::string ptr = ss.str(); 
-            cout<< ptr << endl;
-
+            
             datos["info"][i]["address"] = ptr;
             datos["info"][i]["ID"] = GarbageCollector::IDs[i];
             datos["info"][i]["value"] = GarbageCollector::values[i];
