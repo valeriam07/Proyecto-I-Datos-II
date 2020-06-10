@@ -1,8 +1,9 @@
-/* cppsrc/main.cpp */
 #include <napi.h>
+
 #include "Samples/VSPtrWrap.h"
-Napi::Object InitAll(Napi::Env env, Napi::Object exports) {   
-  return VSWrap::Init(env, exports);
+
+Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
+  return VsptrWrap::Init(env, exports);
 }
 
 NODE_API_MODULE(testaddon, InitAll)

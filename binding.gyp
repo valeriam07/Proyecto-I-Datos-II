@@ -5,6 +5,7 @@
         "cflags_cc!": [ "-fno-exceptions" ],
         "sources": [
             "cppsrc/main.cpp",
+            
             "cppsrc/Samples/VSPtr.cpp",
             "cppsrc/Samples/VSPtrWrap.cpp"
 

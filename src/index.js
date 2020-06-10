@@ -4,68 +4,40 @@ var fs = require("fs");
 var path = require("path");
 var vscode = require("vscode");
 function activate(context) {
-    context.subscriptions.push(vscode.commands.registerCommand('testaddon.start', function () {
-        // Create and show panel
+    //Create Command for opening the form
+    var disposable = vscode.commands.registerCommand('testaddon.start', function () {
         var panel = vscode.window.createWebviewPanel('testaddon', 'test addon', vscode.ViewColumn.One, {
-            enableScripts: true,
-            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+            enableScripts: true
         });
-        //---------------------------------------------------------------------------------------------------JSON
-        var fileName = './UserData.json';
-        var file = require(fileName);
-        var password = file.password;
-        //JSON.stringify(file, null, 0)
-        console.log('antes: ' + file.password);
-        file.password = "4545";
-        //Serialize as JSON and Write it to a file
-        fs.writeFileSync(fileName, JSON.stringify(file));
-        console.log('despues: ' + file.password);
-        console.log(file.password);
-        console.log(file);
-        //-------------------------------------------------------------------------------------------------panel.webview.postMessage
-        var testAddon = require('../build/Release/testaddon.node');
-        console.log(file.password);
-        console.log('addon', testAddon);
-        // console.log('add', testAddon.add(5, 10));
-        module.exports = testAddon;
-        var server = "acepto";
-        console.log("hola");
-        panel.webview.onDidReceiveMessage(function (form) {
-            switch (form.command) {
-                case 1:
-                    var prueba = "5";
-                    vscode.window.showErrorMessage(form.text);
-                    return;
-                case 2:
-            }
-        }, undefined, context.subscriptions);
-        //----------------------------------------------------------------------------------------------get resource
+        // And set its HTML content
         var filePath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'index.html'));
         panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
-        server;
-        //leer json
-        // Handle messages from the webview
-    }));
+        //Handle Inputs from Webview
+        panel.webview.onDidReceiveMessage(function (message) {
+            var port = message.port;
+            var name = message.name;
+            var password = message.password;
+            vscode.window.showErrorMessage("Welcome: " + port + " " + name + "pass" + password);
+            //Write On Json
+            toJson(port, name, password, context);
+        }, undefined, context.subscriptions);
+    });
+    context.subscriptions.push(disposable);
 }
 exports.activate = activate;
-/*
-    const testAddon = require('../build/Release/testaddon.node');
-
-    console.log('hello ', testAddon.hello());
-    console.log('add ', testAddon.add(5, 10));
-    module.exports = testAddon;
-*/
-//${hello}
-/*
-    const prueb = require('../build/Release/testaddon.node');
-    console.log('pruebas', prueb.getADRESS());
-
-    const hello = prueb.getID();
-    const prev = new prueb.VSWrap(5.3);
-    console.log('pruebas', prev.getID());
-
-    module.exports = prueb;
-
-    */
-//console.log(data);
-// And set its HTML content
+// this method is called when your extension is deactivated
+function deactivate() { }
+exports.deactivate = deactivate;
+function toJson(port, name, password, context) {
+    var UserData = { port: port, name: name, password: password };
+    var json = JSON.stringify(UserData);
+    fs.writeFile(path.join(context.extensionPath, 'src', 'UserData.json'), json, 'utf8', function (err) {
+        if (err) {
+            console.log('Error writing file', err);
+        }
+        else {
+            console.log('Successfully wrote file');
+        }
+    });
+}
+//----------------------------------------------------------------------------------------------get resource

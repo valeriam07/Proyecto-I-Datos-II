@@ -1,31 +1,12 @@
-//#include "functionexample.h"
 #include "VSPtr.h"
 #include <iostream>
 #include <fstream>
+//#include "clientsocket.h"
 
-
-GarbageCollector::GarbageCollector(double value){
-   this->value_ = value;
-}
-
-double GarbageCollector::getValue()
-{
-  return this->value_;
-}
-
-double GarbageCollector::add(double toAdd)
-{
-  this->value_ += toAdd;
-  return this->value_;
-}
-
-/*
 using namespace std;
 
 
-//PARTE NUEVA -----------------------
-thread GarbageCollector :: freeMemory(){
-       std::cout<< "Entro a Free Memory" << std::endl;
+void GarbageCollector :: freeMemory(){
 
     try{
 
@@ -38,15 +19,14 @@ thread GarbageCollector :: freeMemory(){
                     cout << "ELIMINADO" << addess[i] << endl;
                 }
 
-                sleep(10000);
+                sleep(1000);
             }
 
         }
-        
     }catch(std::exception const&){
             cout << "Error en el thread" << endl;
-            //return 0;
     }
+
 }
 
 void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
@@ -57,6 +37,8 @@ void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
         cout << "ADDRESS (" << i << ") " << GarbageCollector::addess[i] << endl;
     }
     
+
+    
 }
 
 
@@ -66,7 +48,7 @@ void GarbageCollector :: generateID(){
     GarbageCollector::IDs[VSPtrCount-1] = ID;
 
 
-    for(int i=0; i< (int)((sizeof(GarbageCollector::addess))/ int (sizeof(GarbageCollector::addess[0]))) && GarbageCollector::addess[i] != 0; i++){
+    for(int i=0; i< (int)((sizeof(GarbageCollector::addess))/(sizeof(GarbageCollector::addess[0]))) && GarbageCollector::addess[i] != 0; i++){
 
         cout << "ID (" << i << ") " << GarbageCollector::IDs[i] << endl;
     }
@@ -83,11 +65,19 @@ int* GarbageCollector::getAdress(int key){
     return GarbageCollector::addess[key];
 }
 
-
-
-
-
-
-
+int main(){
+/*
+    GarbageCollector *g = GarbageCollector::getInstance();
+    //thread t(g->freeMemory);
+    //t.join();
+ 
+    VSPtr<int> ptr(new int());
+    *ptr = 20;
+    VSPtr<int> ptr2(new int());
+    *ptr2 = 30;
+    ptr = ptr2;
+    
+    return 0;
 
 */
+}
