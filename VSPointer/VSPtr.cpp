@@ -3,6 +3,8 @@
 #include <fstream>
 #include "clientsocket.h"
 
+
+
 using namespace std;
 
 
@@ -75,7 +77,8 @@ int main(){
     *ptr = 20;
     VSPtr<int> ptr2(new int());
     *ptr2 = 30;
-    ptr = ptr2;
+    //ptr = ptr2;
+    g->sendData();
     
     return 0;
 

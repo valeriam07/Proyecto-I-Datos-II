@@ -4,7 +4,11 @@
 #include <iostream>
 #include <unistd.h>
 #include <thread>
+#include <fstream>
+#include <sstream>
+#include "/home/valeria/Downloads/json-develop/single_include/nlohmann/json.hpp"
 
+using json = nlohmann::json;
 using namespace std;
 
 static int VSPtrCount;
@@ -28,11 +32,34 @@ public:
     int* getAddressList(){
         return *addess;
     }
-    int setValues(){
+    void setValues(){
 
         for(int j = 0; j < VSPtrCount ; j++){
                 GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
             }
+    }
+    void sendData(){
+        ifstream ifs("data.json");
+        json datos;
+        ifs >> datos;
+
+        GarbageCollector::setValues();
+
+        for(int i = 0; i< VSPtrCount; i++){
+            const void * address = static_cast<const void*>(GarbageCollector::addess[0]);
+            std::stringstream ss;
+            ss << address;  
+            std::string ptr = ss.str(); 
+            cout<< ptr << endl;
+
+            datos["info"][i]["address"] = ptr;
+            datos["info"][i]["ID"] = GarbageCollector::IDs[i];
+            datos["info"][i]["value"] = GarbageCollector::values[i];
+        }
+
+        cout<< "JSON FILE: " << datos << endl;
+
+
     }
 
 private:
