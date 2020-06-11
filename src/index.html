@@ -16,14 +16,28 @@
                     <tr>	           	                
                         <th scope="col">Tipo.D</th>	               
                         <th scope="col">Valor.D</th>	               
-                        <th scope="col">Ubi.Memoria</th>	                
+                       	                
                     </tr>
+                       
+                </thead>
+                <tbody id="content"></tbody>
                       
             </table>	    
         
         </div>
     <p>Enter names in the fields, then click "Submit" to submit the form:</p>
+    
+    
+    
+    
+    
     <h1 id = "pruebas"></h1>
+
+
+
+
+
+
     <form>
         name: <input type="text" name="fname" id="name"><br>
         password: <input type="text" name="lname" id="pass"><br>
@@ -51,16 +65,42 @@
 
             const message = event.data; // The JSON data our extension sent
 
-            switch (message.command) {
-                case 'refactor':
-                    count = Math.ceil(5433);
-                    counter.textContent = count;
-                    break;
+            
+
+            switch (message.One) {
+                case 1:
+
+                count = Math.ceil(5433);
+                crearTabla(message);
+                counter.textContent = count;
+                break;
+                    
+            
             }
+            
         });
 
        
+        function crearTabla(message){
 
+            const table = document.getElementById("table");
+                let a = 0;
+
+                content.innerHTML= ""
+
+                while(a<5){
+                a++;
+                content.innerHTML += `
+                    <tr>
+                    <th scope = "row">1</th>
+                    <td>saludo</td>
+                    <td>char</td>
+                    </tr>
+            
+                    `
+
+        }
+    }
        
 
 

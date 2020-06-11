@@ -34,9 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
       },
       undefined,
       context.subscriptions
-    );
+	);
+	const garbageCollector = require('./GCData.json');
 
-    panel.webview.postMessage({ command: "refactor" });
+	//console.log(garbageCollector);
+    panel.webview.postMessage(garbageCollector);
   });
 
   context.subscriptions.push(disposable);
