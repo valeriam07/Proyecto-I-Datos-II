@@ -59,6 +59,7 @@
   "@types/jquery": "^3.3.38",
   "jsonpath": "^1.0.2",
   "node-addon-api": "^3.0.0",
+  "requirejs": "^2.3.6",
   "vscode": "^1.1.37"
  }
 }

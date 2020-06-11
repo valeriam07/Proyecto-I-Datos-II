@@ -3,30 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">-->	       
     <title>Form</title>
 </head>
-<body>
-    <p>Enter names in the fields, then click "Submit" to submit the form:</p>
 
+<body>
+    <div class="container my-5 text-center">
+        <div class="mt-5">
+            <table class="table">	   
+                <thead>	      
+                    <tr>	           	                
+                        <th scope="col">Tipo.D</th>	               
+                        <th scope="col">Valor.D</th>	               
+                        <th scope="col">Ubi.Memoria</th>	                
+                    </tr>
+                      
+            </table>	    
+        
+        </div>
+    <p>Enter names in the fields, then click "Submit" to submit the form:</p>
+    <h1 id = "pruebas"></h1>
     <form>
         name: <input type="text" name="fname" id="name"><br>
         password: <input type="text" name="lname" id="pass"><br>
         port: <input type="text" name="lname" id="port"><br><br>
-
-
-        <button onclick="Post()"> Use</button>
+        <button onclick="Post()"> Use</button><br>
     </form>
-
+    <h1 id="c">0</h1>
+  
+      
     <script>
-        function Post() {
+         const counter = document.getElementById('c');
+         
+         function Post() {
             const vscode = acquireVsCodeApi();
-
+            
             const dname = document.getElementById("name");
             const dpassword = document.getElementById("pass");
             const dport = document.getElementById("port");
 
             vscode.postMessage({port: dport.value , name: dname.value , password: dpassword.value})
         }
+
+        // Handle the message inside the webview
+        window.addEventListener('message', event => {
+
+            const message = event.data; // The JSON data our extension sent
+
+            switch (message.command) {
+                case 'refactor':
+                    count = Math.ceil(5433);
+                    counter.textContent = count;
+                    break;
+            }
+        });
+
+       
+
+       
+
+
+
     </script>
+
 </body>
 </html>
+
+<!--
+
+
+
+
+
+
+
+-->
