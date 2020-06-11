@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
       "test addon",
       vscode.ViewColumn.One,
       {
+		  
         enableScripts: true,
       }
     );

@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">-->	       
     <title>Form</title>
+<!---------------------------------------------------------------------------MY STYLE-->    
+    <style>
+        div.container{
+            text-align: center;
+        }
+        div.container-content{
+            font-size: 300%;
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class="container my-5 text-center">
-        <div class="mt-5">
+<!---------------------------------------------------------------------------MY GARBAGE COLLECTOR DATA-->
+<p> ¿Cual Memoria Desea utilizar?</p>
+<button  onclick="traer()">Memoria Virtual</button>   
+<button  onclick="traer()">Obtener</button> 
+
+
+<div class="container">
+    
+        <div class="container-content">
             <table class="table">	   
                 <thead>	      
                     <tr>	           	                
@@ -25,19 +43,11 @@
             </table>	    
         
         </div>
+    
+<!---------------------------------------------------------------------------MY FORM-->
     <p>Enter names in the fields, then click "Submit" to submit the form:</p>
     
-    
-    
-    
-    
-    <h1 id = "pruebas"></h1>
-
-
-
-
-
-
+    <h1 id ="pruebas">pruebas</h1>
     <form>
         name: <input type="text" name="fname" id="name"><br>
         password: <input type="text" name="lname" id="pass"><br>
@@ -46,8 +56,10 @@
     </form>
     <h1 id="c">0</h1>
   
-      
+ <!---------------------------------------------------------------------------MY CONTROL-->     
     <script>
+        const GC = "";
+//----------------------------------------------------------------------------SENDING DATA
          const counter = document.getElementById('c');
          
          function Post() {
@@ -61,9 +73,18 @@
         }
 
         // Handle the message inside the webview
+
+//----------------------------------------------------------------------------RECIEVE DATA
+function traer(){
+    document.getElementById('pruebas').innerHTML = GC;
+}
+
+
+
         window.addEventListener('message', event => {
 
             const message = event.data; // The JSON data our extension sent
+            
 
             
 
@@ -71,7 +92,9 @@
                 case 1:
 
                 count = Math.ceil(5433);
+               
                 crearTabla(message);
+
                 counter.textContent = count;
                 break;
                     
@@ -79,6 +102,7 @@
             }
             
         });
+    
 
        
         function crearTabla(message){
@@ -88,34 +112,19 @@
 
                 content.innerHTML= ""
 
-                while(a<5){
-                a++;
+                while(a<2){
+                
                 content.innerHTML += `
                     <tr>
                     <th scope = "row">1</th>
-                    <td>saludo</td>
-                    <td>char</td>
+                    <td>${message.Adress[a]}</td>
+                    <td>${message.IP[a]}</td>
                     </tr>
             
                     `
-
+                    a++;
         }
     }
-       
-
-
-
-    </script>
-
+</script>
 </body>
 </html>
-
-<!--
-
-
-
-
-
-
-
--->
