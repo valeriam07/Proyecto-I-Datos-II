@@ -7,7 +7,7 @@
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">-->	       
     <title>Form</title>
-<!---------------------------------------------------------------------------MY STYLE-->    
+<!-------------------------------------------------------------------------------MY STYLE-->    
     <style>
         div.container{
             text-align: center;
@@ -20,10 +20,10 @@
 </head>
 
 <body>
-<!---------------------------------------------------------------------------MY GARBAGE COLLECTOR DATA-->
+<!------------------------------------------------------------------------------MY GARBAGE COLLECTOR DATA-->
 <p> ¿Cual Memoria Desea utilizar?</p>
-<button  onclick="traer()">Memoria Virtual</button>   
-<button  onclick="traer()">Obtener</button> 
+<button  onclick="MemoVir()">Memoria Virtual</button>   
+<button  onclick="MemoComp()">Memoria del Computador</button> 
 
 
 <div class="container">
@@ -44,23 +44,22 @@
         
         </div>
     
-<!---------------------------------------------------------------------------MY FORM-->
+<!-----------------------------------------------------------------------------MY FORM-->
     <p>Enter names in the fields, then click "Submit" to submit the form:</p>
     
     <h1 id ="pruebas">pruebas</h1>
-    <form>
-        name: <input type="text" name="fname" id="name"><br>
-        password: <input type="text" name="lname" id="pass"><br>
-        port: <input type="text" name="lname" id="port"><br><br>
-        <button onclick="Post()"> Use</button><br>
+    <form id = "myData">
+
     </form>
+    <h2 id = "EsConex"></h2>
+    <h4 id = "contador"></h4>
     <h1 id="c">0</h1>
   
- <!---------------------------------------------------------------------------MY CONTROL-->     
+ <!----------------------------------------------------------------------------------------MY CONTROL-->     
     <script>
-        const GC = "";
+        var GC = "";
 //----------------------------------------------------------------------------SENDING DATA
-         const counter = document.getElementById('c');
+         //const counter = document.getElementById('c');
          
          function Post() {
             const vscode = acquireVsCodeApi();
@@ -70,44 +69,40 @@
             const dport = document.getElementById("port");
 
             vscode.postMessage({port: dport.value , name: dname.value , password: dpassword.value})
+            server();
         }
 
         // Handle the message inside the webview
 
 //----------------------------------------------------------------------------RECIEVE DATA
-function traer(){
-    document.getElementById('pruebas').innerHTML = GC;
+
+window.addEventListener('message', event => {
+
+const message = event.data; // The JSON data our extension sent
+GC = message;
+
+
+switch (message.One) {
+    case 1:
+
+    count = Math.ceil(5433);
+    //crearTabla(message);
+    //counter.textContent = count;
+    break;
+        
+
 }
 
+});
+
+//----------------------------------------------------------------------------MANNAGE DATA
 
 
-        window.addEventListener('message', event => {
+//------------------------------------------------------------BUTTON COMPUTER
+function MemoComp(){
+    document.getElementById('pruebas').innerHTML = GC.Adress[0];
 
-            const message = event.data; // The JSON data our extension sent
-            
-
-            
-
-            switch (message.One) {
-                case 1:
-
-                count = Math.ceil(5433);
-               
-                crearTabla(message);
-
-                counter.textContent = count;
-                break;
-                    
-            
-            }
-            
-        });
-    
-
-       
-        function crearTabla(message){
-
-            const table = document.getElementById("table");
+    const table = document.getElementById("table");
                 let a = 0;
 
                 content.innerHTML= ""
@@ -116,15 +111,67 @@ function traer(){
                 
                 content.innerHTML += `
                     <tr>
-                    <th scope = "row">1</th>
-                    <td>${message.Adress[a]}</td>
-                    <td>${message.IP[a]}</td>
+                    <th scope = "row">${a}</th>
+                    <td>${GC.Adress[a]}</td>
+                    <td>${GC.IP[a]}</td>
                     </tr>
             
                     `
                     a++;
-        }
+                }
+}
+
+//------------------------------------------------------------BUTTON VIRTUAL MEMORY
+
+
+//--------------------------------------------- MY FORM
+
+function MemoVir(){
+    myData.innerHTML = `
+         name: <input type="text" name="fname" id="name"><br>
+        password: <input type="text" name="lname" id="pass"><br>
+        port: <input type="text" name="lname" id="port"><br><br>
+        <button onclick="Post()"> Use</button><br>
+             `
+}
+
+//-------------------------------------------- VERIFICATION SERVER
+
+function server(){
+        EsConex.innerHTML = 
+        `<h3> esperando coneccion</h3>
+                `
+        const counter = document.getElementById('c');
+
+    let count = 0;
+    setInterval(() => {
+        if(count != 15){
+        counter.textContent = count++;
+    }else{
+        EsConex.innerHTML = 
+        `<h3>coneccion Exitosa</h3>
+                `
+        //document.getElementById('c')= "";
+        myData.innerHTML = `
+        
+        `
+        MemoComp();
+    
     }
+    }, 100);
+
+   
+ 
+ }
+
+
+
+
+
+
+
+      
+    
 </script>
 </body>
 </html>

@@ -27,9 +27,8 @@ export function activate(context: vscode.ExtensionContext) {
         let port = message.port;
         let name = message.name;
         let password = message.password;
-        vscode.window.showErrorMessage(
-          "Welcome: " + port + " " + name + "pass" + password
-        );
+        vscode.window.showInformationMessage(
+          "Welcome: " + name + "  thanks for using our Garbage Collector");
         //Write On Json
         toJson(port, name, password, context);
       },

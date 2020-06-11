@@ -17,7 +17,7 @@ function activate(context) {
             var port = message.port;
             var name = message.name;
             var password = message.password;
-            vscode.window.showErrorMessage("Welcome: " + port + " " + name + "pass" + password);
+            vscode.window.showInformationMessage("Welcome: " + name + "  thanks for using our Garbage Collector");
             //Write On Json
             toJson(port, name, password, context);
         }, undefined, context.subscriptions);
