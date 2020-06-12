@@ -4,7 +4,12 @@
 #include <iostream>
 #include <unistd.h>
 #include <thread>
+#include <fstream>
+#include <sstream>
+#include "../json.hpp"
+#include "./clientsocket.h"
 
+using json = nlohmann::json;
 using namespace std;
 
 static int VSPtrCount;
@@ -34,6 +39,28 @@ public:
                 GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
             }
     }
+    void sendData(){
+        ifstream ifs("data.json");
+        json datos;
+        ifs >> datos;
+
+        GarbageCollector::setValues();
+
+        for(int i = 0; i< VSPtrCount; i++){
+            const void * address = static_cast<const void*>(GarbageCollector::addess[0]);
+            std::stringstream ss;
+            ss << address;  
+            std::string ptr = ss.str(); 
+            
+            datos["info"][i]["address"] = ptr;
+            datos["info"][i]["ID"] = GarbageCollector::IDs[i];
+            datos["info"][i]["value"] = GarbageCollector::values[i];
+        }
+
+        cout<< "JSON FILE: " << datos << endl;
+
+
+    }
 
 private:
     static GarbageCollector *instance;
@@ -46,6 +73,10 @@ GarbageCollector *GarbageCollector ::getInstance()
     if (instance == 0)
     {
         instance = new GarbageCollector();
+        if(getIfServer() == true){
+            init_server();
+        }
+        
     }
 
     return instance;
@@ -83,6 +114,7 @@ public:
         g->saveAddress(VSPtrCount, ptr);
         g->generateID();
         g->references[key] = VSPReference;
+        g->sendData();
     }
 
     ~VSPtr()

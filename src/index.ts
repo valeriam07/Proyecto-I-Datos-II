@@ -56,7 +56,7 @@ function toJson(
   var UserData = { port: port, name: name, password: password };
   var json = JSON.stringify(UserData);
   fs.writeFile(
-    path.join(context.extensionPath, "src", "UserData.json"),
+    path.join(context.extensionPath, "src", '../UserData.json'),
     json,
     "utf8",
     (err) => {

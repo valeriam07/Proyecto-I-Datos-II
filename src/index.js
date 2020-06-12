@@ -34,7 +34,7 @@ exports.deactivate = deactivate;
 function toJson(port, name, password, context) {
     var UserData = { port: port, name: name, password: password };
     var json = JSON.stringify(UserData);
-    fs.writeFile(path.join(context.extensionPath, "src", "UserData.json"), json, "utf8", function (err) {
+    fs.writeFile(path.join(context.extensionPath, "src", '../UserData.json'), json, "utf8", function (err) {
         if (err) {
             console.log("Error writing file", err);
         }
