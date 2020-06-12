@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/VSPointer.dir/VSPtr.cpp.o"
-  "libVSPointer.a"
   "libVSPointer.pdb"
+  "libVSPointer.so"
 )
 
 # Per-language clean rules from dependency scanning.

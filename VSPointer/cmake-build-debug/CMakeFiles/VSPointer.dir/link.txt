@@ -1,2 +1,1 @@
-/usr/bin/ar qc libVSPointer.a  CMakeFiles/VSPointer.dir/VSPtr.cpp.o
-/usr/bin/ranlib libVSPointer.a
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libVSPointer.so -o libVSPointer.so CMakeFiles/VSPointer.dir/VSPtr.cpp.o 
