@@ -1,0 +1,2 @@
+/usr/bin/ar qc libVSPointer.a  CMakeFiles/VSPointer.dir/VSPtr.cpp.o
+/usr/bin/ranlib libVSPointer.a

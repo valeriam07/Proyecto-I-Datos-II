@@ -9,6 +9,7 @@
 #include <iostream>
 #include "VSPtr.h"
 #include <sstream>
+#include "/home/valeria/Downloads/json-develop/single_include/nlohmann/json.hpp"
 
 using namespace std;
 
@@ -23,37 +24,35 @@ void error(const char *msg)
     exit(0);
 }
 
-void readJson(){
-    /*ifstream ifs("camaras.json");
-    Json::Reader reader;
-    Json::Value obj;
-    reader.parse(ifs, obj);
-    const Json::Value& characters = obj["camaras"]; // array of characters
-
-    for (int i = 0; i < characters.size(); i++){
-        cout << "\nNombre: " << characters[i]["nombre"].asString();
-        cout << "\nIP: " << characters[i]["ip"].asString();
-        cout << endl;
-    }*/
+json readJson(){
+    ifstream ifs("../UserData.json");
+    json userData;
+    ifs >> userData;
+    return userData;
 }
 
 
 int getPort(){
-    int port = 2000;           //Obtener del .json
-    return port;
-
+    json userData = readJson();         
+    int port = userData["port"];
+    return port; 
 }
 
-const char* getSName(){
-    const char* sName = "1";  //Obtener ddel .json
-    return sName;
+char* getSName(){
+    json userData = readJson();          
+    string sName = userData["name"];  //Obtener ddel .json
+    char chName[sizeof(sName)];
+    strcpy(chName, sName.c_str());
+    return chName;
 
 }
 
 string getPassword(){
-    string pass = "pass";
+    json userData = readJson();         
+    string pass = userData["password"];
     return pass;
 }
+
 
 void sendIDs(){
     GarbageCollector *g = GarbageCollector::getInstance();

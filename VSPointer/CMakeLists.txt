@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(untitled VSPtr.cpp)
+add_library(VSPointer VSPtr.cpp)

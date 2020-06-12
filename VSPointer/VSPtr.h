@@ -21,10 +21,10 @@ class GarbageCollector
 public:
     static GarbageCollector *getInstance();     //retorna el numero de instancias de un VSPtr
     void saveAddress(int VSPtrCount, int *ptr); // guardado del puntero
-    static int *addess[10];                     //lista de direcciones
-    string IDs[10];                             //lista de ID
-    static int values[10];
-    static int references[10];
+    static int *addess[];                     //lista de direcciones
+    string IDs[100];                             //lista de ID
+    static int values[];
+    static int references[];
     void generateID();
     string getID(int key);
     int *getAdress(int key);
@@ -50,7 +50,7 @@ public:
             std::stringstream ss;
             ss << address;  
             std::string ptr = ss.str(); 
-            
+
             datos["info"][i]["address"] = ptr;
             datos["info"][i]["ID"] = GarbageCollector::IDs[i];
             datos["info"][i]["value"] = GarbageCollector::values[i];
@@ -82,9 +82,9 @@ GarbageCollector::GarbageCollector()
     
 };
 
-int GarbageCollector::references[10];
-int* GarbageCollector::addess[10];
-int GarbageCollector::values[10];
+int GarbageCollector::references[100];
+int* GarbageCollector::addess[100];
+int GarbageCollector::values[100];
 
 //________________________________VSPOINTER__________________________________
 
@@ -109,6 +109,7 @@ public:
         g->saveAddress(VSPtrCount, ptr);
         g->generateID();
         g->references[key] = VSPReference;
+        g->sendData();
     }
 
     ~VSPtr()
