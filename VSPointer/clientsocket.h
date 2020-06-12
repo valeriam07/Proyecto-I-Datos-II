@@ -18,12 +18,22 @@ char ids[200];
 char ptrs[200];
 char values[200];
 
+/**
+ * @brief envia un error en dicho caso de que ocurra un problema con el cliente
+ * 
+ * @param msg mensaje de aviso de error para el usuario
+ */
 void error(const char *msg)
 {
     perror(msg);
     exit(0);
 }
 
+/**
+ * @brief lee el archivo .json que contiene los datos del servidor ingresados por el usuario
+ * 
+ * @return json que contiene la informacion del servidor ingresada por el usuario
+ */
 json readJson(){
     ifstream ifs("../UserData.json");
     json userData;
@@ -31,13 +41,22 @@ json readJson(){
     return userData;
 }
 
-
+/**
+ * @brief obtiene el puerto ingresado por el usuario
+ * 
+ * @return int, numero del puerto por verificar
+ */
 int getPort(){
     json userData = readJson();         
     int port = userData["port"];
     return port; 
 }
 
+/**
+ * @brief obtiene el nombre del servidor ingresado por el usuario
+ * 
+ * @return char*, nombre del servidor por verificar
+ */
 char* getSName(){
     json userData = readJson();          
     string sName = userData["name"];  //Obtener ddel .json
@@ -47,13 +66,21 @@ char* getSName(){
 
 }
 
+/**
+ * @brief obtiene la clave del servidor ingresada por el usuario
+ * 
+ * @return string, clave del servidor por verificar
+ */
 string getPassword(){
     json userData = readJson();         
     string pass = userData["password"];
     return pass;
 }
 
-
+/**
+ * @brief guarda las identificaciones de los objetos VSPtr
+ * 
+ */
 void sendIDs(){
     GarbageCollector *g = GarbageCollector::getInstance();
 
@@ -74,6 +101,10 @@ void sendIDs(){
     cout << "IDS: [" << ids << "]" << endl;
 }
 
+/**
+ * @brief guarda las direcciones en la memoria de los VSPtr
+ * 
+ */
 void sendPtrs(){
     GarbageCollector *g = GarbageCollector::getInstance();
 
@@ -100,7 +131,10 @@ void sendPtrs(){
     cout << "PTRs: [" << ptrs << "]" << endl;
 }
 
-
+/**
+ * @brief guarda los valores de los VSPtr 
+ * 
+ */
 void sendValues(){
     GarbageCollector *g = GarbageCollector::getInstance();
 
@@ -125,11 +159,11 @@ void sendValues(){
     cout << "VALUES: [" << values << "]" << endl;
 }
 
-void writeError(int n){
-    if (n < 0)
-            error("ERROR writing to socket");
-}
-
+/**
+ * @brief inicializa el cliente y envia los datos de los objetos de tipo VSPtr creados por el usuario al servidor
+ * 
+ * @return int, estado del cliente
+ */
 int init_client()
 {
     int sockfd, portno, n;

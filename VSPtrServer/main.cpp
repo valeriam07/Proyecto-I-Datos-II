@@ -1,11 +1,32 @@
 #include <iostream>
-#include "serversocket.h"
-
-//#define PORT 8080
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h> 
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 using namespace std;
 
-int main(int argc, char *argv[]){
+/**
+ * @brief envia un error en dicho caso de que ocurra un problema con el cliente
+ * 
+ * @param msg mensaje de aviso de error para el usuario
+ */
+void error(const char *msg)
+{
+    perror(msg);
+    exit(1);
+}
+
+
+/**
+ * @brief inicializa el servidor, lee y guarda los datos enviados por el cliente
+ * 
+ * @return int, estado del servidor
+ */
+int main(){
 
      char name[] = {"VSPtrServer"};
      sethostname(name, strlen(name));

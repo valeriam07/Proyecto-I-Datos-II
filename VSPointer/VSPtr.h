@@ -15,6 +15,10 @@ static int VSPtrCount;
 
 // ___________________________GARBAGE COLLECTOR_____________________________
 
+/**
+ * @brief esta clase se encarga de liberar la memoria y almacenar la informacion de los VSPtr
+ * 
+ */
 class GarbageCollector
 {
 
@@ -32,12 +36,22 @@ public:
     int* getAddressList(){
         return *addess;
     }
+
+    /**
+     * @brief asigna y guarda los valores de cada VSPtr en un array
+     * 
+     */
     void setValues(){
 
         for(int j = 0; j < VSPtrCount ; j++){
                 GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
             }
     }
+
+    /**
+     * @brief envia la informacion de los VSPtr creados por el usuario a un archivo .json
+     * 
+     */
     void sendData(){
         ifstream ifs("data.json");
         json datos;
@@ -67,6 +81,12 @@ private:
 };
 
 GarbageCollector *GarbageCollector::instance = 0;
+
+/**
+ * @brief singleton de la clase Garbage Collector
+ * 
+ * @return GarbageCollector* ::getInstance 
+ */
 GarbageCollector *GarbageCollector ::getInstance()
 {
     if (instance == 0)
@@ -90,6 +110,10 @@ int GarbageCollector::values[100];
 
 template <class T>
 
+/**
+ * @brief esta clase se encarga de operar los VSPtr
+ * 
+ */
 class VSPtr
 {
     T *ptr;
@@ -98,7 +122,11 @@ public:
     int key;
     int VSPReference;
 
-    //constructor
+    /**
+     * @brief Construye nuevos objetos de tipo VSPtr
+     * 
+     * @param p 
+     */
     explicit VSPtr(T *p = NULL)
     {
         ptr = p; //ptr is the address
@@ -111,7 +139,10 @@ public:
         g->references[key] = VSPReference;
         g->sendData();
     }
-
+    /**
+     * @brief destruye el objeto VSPtr
+     * 
+     */
     ~VSPtr()
     {
         delete (ptr);
@@ -119,21 +150,34 @@ public:
 
     string ID;
 
-    //Overloading deferencing operator
+    /**
+     * @brief sobrecarga del operador *
+     * 
+     * @return T&, el valor reservado por el objeto VSPtr
+     */
     T &operator*()
     {
         this->VSPReference++;
         return *ptr;
     }
 
-    //Overloading arrow operator, members of T can be accessed like a
-    //pointer
+    /**
+     * @brief sobrecarga del operador ->
+     * 
+     * @return T*, direccion en la memoria del VSPtr 
+     */
     T *operator->()
     {
         this->VSPReference++;
         return ptr;
     }
 
+    /**
+     * @brief sobrecarga del operador =
+     * 
+     * @param ptr VSPtr al cual se iguala otro VSPtr
+     * @return VSPtr con los respectivos cambios realizados
+     */
     VSPtr operator=(VSPtr ptr)
     {
         GarbageCollector *g = GarbageCollector::getInstance();
@@ -156,6 +200,7 @@ public:
 
         cout << "NEW ID: " << g->getID(this->key) << endl;
         cout << "NEW DATA: " << g->values[this->key] << endl;
+        return this;
     }
 };
 

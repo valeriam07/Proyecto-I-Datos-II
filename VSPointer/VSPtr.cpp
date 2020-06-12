@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/**
+ * @brief metodo principal del Garbage Collector.
+ * Libera la memoria de los VSPointer que no tienen ninguna referencia mediante un thead.
+ * 
+ */
 void GarbageCollector :: freeMemory(){
 
     try{
@@ -28,6 +33,12 @@ void GarbageCollector :: freeMemory(){
 
 }
 
+/**
+ * @brief Guarda las direcciones de los VSPtr en un array.
+ * 
+ * @param VSPtrCount numero de VSPtr actuales
+ * @param ptr direccion del VSPtr por guardar
+ */
 void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
 
     GarbageCollector::addess[VSPtrCount-1] = ptr;
@@ -42,6 +53,10 @@ void GarbageCollector :: saveAddress(int VSPtrCount, int* ptr){
 }
 
 
+/**
+ * @brief Genera y guarda una identificacion para cada VSPtr creado
+ * 
+ */
 void GarbageCollector :: generateID(){
 
     string ID = "VSPTR_" + to_string(VSPtrCount);
@@ -56,28 +71,22 @@ void GarbageCollector :: generateID(){
 
 }
 
+/**
+ * @brief retorna la identificacion de un VSPtr mediante el uso de su respectiva llave
+ * 
+ * @param key llave del VSPtr
+ * @return string 
+ */
 string GarbageCollector::getID(int key){
     return GarbageCollector::IDs[key];
 }
 
+/**
+ * @brief retorna la direccion de memoria de un VSPtr mediante su respectiva llave
+ * 
+ * @param key llave del VSPtr
+ * @return int* 
+ */
 int* GarbageCollector::getAdress(int key){
     return GarbageCollector::addess[key];
-}
-
-int main(){
-
-    GarbageCollector *g = GarbageCollector::getInstance();
-    //thread t(g->freeMemory);
-    //t.join();
- 
-    VSPtr<int> ptr(new int());
-    *ptr = 20;
-    VSPtr<int> ptr2(new int());
-    *ptr2 = 30;
-    //ptr = ptr2;
-    g->sendData();
-    
-    return 0;
-
-
 }
