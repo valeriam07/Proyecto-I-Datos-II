@@ -1,0 +1,192 @@
+\hypertarget{classVSPtr}{}\section{V\+S\+Ptr$<$ T $>$ Class Template Reference}
+\label{classVSPtr}\index{V\+S\+Ptr$<$ T $>$@{V\+S\+Ptr$<$ T $>$}}
+
+
+esta clase se encarga de operar los \hyperlink{classVSPtr}{V\+S\+Ptr}  
+
+
+
+
+{\ttfamily \#include $<$V\+S\+Ptr.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVSPtr_af09710020eb6adeb5f4b2ec05135424a}{V\+S\+Ptr} (T $\ast$p=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Construye nuevos objetos de tipo \hyperlink{classVSPtr}{V\+S\+Ptr}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}\label{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}} 
+\hyperlink{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}{$\sim$\+V\+S\+Ptr} ()
+\begin{DoxyCompactList}\small\item\em destruye el objeto \hyperlink{classVSPtr}{V\+S\+Ptr} \end{DoxyCompactList}\item 
+T \& \hyperlink{classVSPtr_a77ecd1f1e117ff07a181c265aac5c8e3}{operator$\ast$} ()
+\begin{DoxyCompactList}\small\item\em sobrecarga del operador $\ast$ \end{DoxyCompactList}\item 
+T $\ast$ \hyperlink{classVSPtr_aad11db03d22be0ece564777de9415515}{operator-\/$>$} ()
+\begin{DoxyCompactList}\small\item\em sobrecarga del operador -\/$>$ \end{DoxyCompactList}\item 
+\hyperlink{classVSPtr}{V\+S\+Ptr} \hyperlink{classVSPtr_af568414fadd2891d8cdcede387afa657}{operator=} (\hyperlink{classVSPtr}{V\+S\+Ptr} ptr)
+\begin{DoxyCompactList}\small\item\em sobrecarga del operador = \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVSPtr_ab828835781c0eeeb3117062df076114c}\label{classVSPtr_ab828835781c0eeeb3117062df076114c}} 
+int {\bfseries key}
+\item 
+\mbox{\Hypertarget{classVSPtr_a6a85e6000211be8d0d8449c581fce8c3}\label{classVSPtr_a6a85e6000211be8d0d8449c581fce8c3}} 
+int {\bfseries V\+S\+P\+Reference}
+\item 
+\mbox{\Hypertarget{classVSPtr_a993892d6deca306b3f80711523bdff36}\label{classVSPtr_a993892d6deca306b3f80711523bdff36}} 
+string {\bfseries ID}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class V\+S\+Ptr$<$ T $>$}
+
+esta clase se encarga de operar los \hyperlink{classVSPtr}{V\+S\+Ptr} 
+
+Definition at line 117 of file V\+S\+Ptr.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVSPtr_af09710020eb6adeb5f4b2ec05135424a}\label{classVSPtr_af09710020eb6adeb5f4b2ec05135424a}} 
+\index{V\+S\+Ptr@{V\+S\+Ptr}!V\+S\+Ptr@{V\+S\+Ptr}}
+\index{V\+S\+Ptr@{V\+S\+Ptr}!V\+S\+Ptr@{V\+S\+Ptr}}
+\subsubsection{\texorpdfstring{V\+S\+Ptr()}{VSPtr()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classVSPtr}{V\+S\+Ptr}$<$ T $>$\+::\hyperlink{classVSPtr}{V\+S\+Ptr} (\begin{DoxyParamCaption}\item[{T $\ast$}]{p = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construye nuevos objetos de tipo \hyperlink{classVSPtr}{V\+S\+Ptr}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file V\+S\+Ptr.\+h.
+
+
+\begin{DoxyCode}
+131     \{
+132         ptr = p; \textcolor{comment}{//ptr is the address}
+133         \hyperlink{classGarbageCollector}{GarbageCollector} *g = \hyperlink{classGarbageCollector_ade4bccdf41223cc395b646db3f60ac8b}{GarbageCollector::getInstance}();
+134         VSPtrCount++;
+135         cout << \textcolor{stringliteral}{"VSPTR COUNT: "} << VSPtrCount << endl;
+136         key = VSPtrCount - 1;
+137         g->\hyperlink{classGarbageCollector_aabb68414b8f72ca07aeb13ff7cc1d060}{saveAddress}(VSPtrCount, ptr);
+138         g->\hyperlink{classGarbageCollector_a22601db30594acef6fbea411f49f3fde}{generateID}();
+139         g->references[key] = VSPReference;
+140         g->\hyperlink{classGarbageCollector_ac66057f60dcabda9c78f88de90863729}{sendData}();
+141     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classVSPtr_a77ecd1f1e117ff07a181c265aac5c8e3}\label{classVSPtr_a77ecd1f1e117ff07a181c265aac5c8e3}} 
+\index{V\+S\+Ptr@{V\+S\+Ptr}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!V\+S\+Ptr@{V\+S\+Ptr}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T\& \hyperlink{classVSPtr}{V\+S\+Ptr}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sobrecarga del operador $\ast$ 
+
+\begin{DoxyReturn}{Returns}
+T\&, el valor reservado por el objeto \hyperlink{classVSPtr}{V\+S\+Ptr} 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file V\+S\+Ptr.\+h.
+
+
+\begin{DoxyCode}
+159     \{
+160         this->VSPReference++;
+161         \textcolor{keywordflow}{return} *ptr;
+162     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classVSPtr_aad11db03d22be0ece564777de9415515}\label{classVSPtr_aad11db03d22be0ece564777de9415515}} 
+\index{V\+S\+Ptr@{V\+S\+Ptr}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!V\+S\+Ptr@{V\+S\+Ptr}}
+\subsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \hyperlink{classVSPtr}{V\+S\+Ptr}$<$ T $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sobrecarga del operador -\/$>$ 
+
+\begin{DoxyReturn}{Returns}
+T$\ast$, direccion en la memoria del \hyperlink{classVSPtr}{V\+S\+Ptr} 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file V\+S\+Ptr.\+h.
+
+
+\begin{DoxyCode}
+170     \{
+171         this->VSPReference++;
+172         \textcolor{keywordflow}{return} ptr;
+173     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classVSPtr_af568414fadd2891d8cdcede387afa657}\label{classVSPtr_af568414fadd2891d8cdcede387afa657}} 
+\index{V\+S\+Ptr@{V\+S\+Ptr}!operator=@{operator=}}
+\index{operator=@{operator=}!V\+S\+Ptr@{V\+S\+Ptr}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classVSPtr}{V\+S\+Ptr} \hyperlink{classVSPtr}{V\+S\+Ptr}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classVSPtr}{V\+S\+Ptr}$<$ T $>$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sobrecarga del operador = 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & \hyperlink{classVSPtr}{V\+S\+Ptr} al cual se iguala otro \hyperlink{classVSPtr}{V\+S\+Ptr} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classVSPtr}{V\+S\+Ptr} con los respectivos cambios realizados 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file V\+S\+Ptr.\+h.
+
+
+\begin{DoxyCode}
+182     \{
+183         \hyperlink{classGarbageCollector}{GarbageCollector} *g = \hyperlink{classGarbageCollector_ade4bccdf41223cc395b646db3f60ac8b}{GarbageCollector::getInstance}();
+184         g->\hyperlink{classGarbageCollector_ab9695e995e50172ba4d4c21a9c17e841}{setValues}();
+185 
+186         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < VSPtrCount ; j++)\{
+187                 cout <<\textcolor{stringliteral}{"DATA ("} << j << \textcolor{stringliteral}{") "} << GarbageCollector::values[j] << endl;
+188             \}
+189             
+190         ptr.VSPReference++;
+191 
+192 
+193         cout << \textcolor{stringliteral}{"------ USING = OPERAND ------"} << endl;
+194         cout << \textcolor{stringliteral}{"ACTUAL ID: "} << g->\hyperlink{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}{getID}(this->key) << endl;
+195         cout << \textcolor{stringliteral}{"ACTUAL DATA: "} << GarbageCollector::values[this->key] << endl;
+196 
+197         g->IDs[this->key] = g->\hyperlink{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}{getID}(ptr.key);        \textcolor{comment}{//reemplaza el id del elemento izquierdo por una
+       copia del id del elemento derecho}
+198         **\textcolor{keyword}{this} = *ptr;
+199         g->\hyperlink{classGarbageCollector_ab9695e995e50172ba4d4c21a9c17e841}{setValues}();
+200 
+201         cout << \textcolor{stringliteral}{"NEW ID: "} << g->\hyperlink{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}{getID}(this->key) << endl;
+202         cout << \textcolor{stringliteral}{"NEW DATA: "} << g->values[this->key] << endl;
+203         \textcolor{keywordflow}{return} \textcolor{keyword}{this};
+204     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+V\+S\+Ptr.\+h\end{DoxyCompactItemize}

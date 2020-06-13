@@ -1,0 +1,194 @@
+\hypertarget{classGarbageCollector}{}\section{Garbage\+Collector Class Reference}
+\label{classGarbageCollector}\index{Garbage\+Collector@{Garbage\+Collector}}
+
+
+esta clase se encarga de liberar la memoria y almacenar la informacion de los \hyperlink{classVSPtr}{V\+S\+Ptr}  
+
+
+
+
+{\ttfamily \#include $<$V\+S\+Ptr.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGarbageCollector_aabb68414b8f72ca07aeb13ff7cc1d060}{save\+Address} (int V\+S\+Ptr\+Count, int $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Guarda las direcciones de los \hyperlink{classVSPtr}{V\+S\+Ptr} en un array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGarbageCollector_a22601db30594acef6fbea411f49f3fde}\label{classGarbageCollector_a22601db30594acef6fbea411f49f3fde}} 
+void \hyperlink{classGarbageCollector_a22601db30594acef6fbea411f49f3fde}{generate\+ID} ()
+\begin{DoxyCompactList}\small\item\em Genera y guarda una identificacion para cada \hyperlink{classVSPtr}{V\+S\+Ptr} creado. \end{DoxyCompactList}\item 
+string \hyperlink{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}{get\+ID} (int key)
+\begin{DoxyCompactList}\small\item\em retorna la identificacion de un \hyperlink{classVSPtr}{V\+S\+Ptr} mediante el uso de su respectiva llave \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{classGarbageCollector_acaa683eb8aa51ce85ff5a8e3dbe17bd8}{get\+Adress} (int key)
+\begin{DoxyCompactList}\small\item\em retorna la direccion de memoria de un \hyperlink{classVSPtr}{V\+S\+Ptr} mediante su respectiva llave \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGarbageCollector_ac6d9b246803af79bbacf67c562ed0c44}\label{classGarbageCollector_ac6d9b246803af79bbacf67c562ed0c44}} 
+int $\ast$ {\bfseries get\+Address\+List} ()
+\item 
+\mbox{\Hypertarget{classGarbageCollector_ab9695e995e50172ba4d4c21a9c17e841}\label{classGarbageCollector_ab9695e995e50172ba4d4c21a9c17e841}} 
+void \hyperlink{classGarbageCollector_ab9695e995e50172ba4d4c21a9c17e841}{set\+Values} ()
+\begin{DoxyCompactList}\small\item\em asigna y guarda los valores de cada \hyperlink{classVSPtr}{V\+S\+Ptr} en un array \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGarbageCollector_ac66057f60dcabda9c78f88de90863729}\label{classGarbageCollector_ac66057f60dcabda9c78f88de90863729}} 
+void \hyperlink{classGarbageCollector_ac66057f60dcabda9c78f88de90863729}{send\+Data} ()
+\begin{DoxyCompactList}\small\item\em envia la informacion de los \hyperlink{classVSPtr}{V\+S\+Ptr} creados por el usuario a un archivo .json \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGarbageCollector}{Garbage\+Collector} $\ast$ \hyperlink{classGarbageCollector_ade4bccdf41223cc395b646db3f60ac8b}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em singleton de la clase Garbage Collector \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGarbageCollector_ae980dc185c172fa0e408f82d79c1fca3}\label{classGarbageCollector_ae980dc185c172fa0e408f82d79c1fca3}} 
+static void \hyperlink{classGarbageCollector_ae980dc185c172fa0e408f82d79c1fca3}{free\+Memory} ()
+\begin{DoxyCompactList}\small\item\em metodo principal del Garbage Collector. Libera la memoria de los V\+S\+Pointer que no tienen ninguna referencia mediante un thead. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGarbageCollector_aaa9d40687613f1f5bed1eade53d2fa0e}\label{classGarbageCollector_aaa9d40687613f1f5bed1eade53d2fa0e}} 
+string {\bfseries I\+Ds} \mbox{[}100\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGarbageCollector_abcbb69dfa9db0805652dc45f7911a4cc}\label{classGarbageCollector_abcbb69dfa9db0805652dc45f7911a4cc}} 
+static int $\ast$ {\bfseries addess} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{classGarbageCollector_a4f8929a0249ad8c1dafd6448e39a4809}\label{classGarbageCollector_a4f8929a0249ad8c1dafd6448e39a4809}} 
+static int {\bfseries values} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{classGarbageCollector_a5e65ad48d134c7c3ae82ee90d50f87ae}\label{classGarbageCollector_a5e65ad48d134c7c3ae82ee90d50f87ae}} 
+static int {\bfseries references} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+esta clase se encarga de liberar la memoria y almacenar la informacion de los \hyperlink{classVSPtr}{V\+S\+Ptr} 
+
+Definition at line 22 of file V\+S\+Ptr.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGarbageCollector_acaa683eb8aa51ce85ff5a8e3dbe17bd8}\label{classGarbageCollector_acaa683eb8aa51ce85ff5a8e3dbe17bd8}} 
+\index{Garbage\+Collector@{Garbage\+Collector}!get\+Adress@{get\+Adress}}
+\index{get\+Adress@{get\+Adress}!Garbage\+Collector@{Garbage\+Collector}}
+\subsubsection{\texorpdfstring{get\+Adress()}{getAdress()}}
+{\footnotesize\ttfamily int $\ast$ Garbage\+Collector\+::get\+Adress (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+retorna la direccion de memoria de un \hyperlink{classVSPtr}{V\+S\+Ptr} mediante su respectiva llave 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & llave del \hyperlink{classVSPtr}{V\+S\+Ptr} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file V\+S\+Ptr.\+cpp.
+
+
+\begin{DoxyCode}
+90                                        \{
+91     \textcolor{keywordflow}{return} GarbageCollector::addess[key];
+92 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}\label{classGarbageCollector_a6bd32127344dabc3b5af12e8ddabace5}} 
+\index{Garbage\+Collector@{Garbage\+Collector}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Garbage\+Collector@{Garbage\+Collector}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily string Garbage\+Collector\+::get\+ID (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+retorna la identificacion de un \hyperlink{classVSPtr}{V\+S\+Ptr} mediante el uso de su respectiva llave 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & llave del \hyperlink{classVSPtr}{V\+S\+Ptr} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file V\+S\+Ptr.\+cpp.
+
+
+\begin{DoxyCode}
+80                                      \{
+81     \textcolor{keywordflow}{return} GarbageCollector::IDs[key];
+82 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classGarbageCollector_ade4bccdf41223cc395b646db3f60ac8b}\label{classGarbageCollector_ade4bccdf41223cc395b646db3f60ac8b}} 
+\index{Garbage\+Collector@{Garbage\+Collector}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Garbage\+Collector@{Garbage\+Collector}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{classGarbageCollector}{Garbage\+Collector} $\ast$ Garbage\+Collector\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+singleton de la clase Garbage Collector 
+
+\begin{DoxyReturn}{Returns}
+Garbage\+Collector$\ast$ \+::get\+Instance 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file V\+S\+Ptr.\+h.
+
+
+\begin{DoxyCode}
+91 \{
+92     \textcolor{keywordflow}{if} (instance == 0)
+93     \{
+94         instance = \textcolor{keyword}{new} \hyperlink{classGarbageCollector}{GarbageCollector}();
+95     \}
+96 
+97     \textcolor{keywordflow}{return} instance;
+98 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classGarbageCollector_aabb68414b8f72ca07aeb13ff7cc1d060}\label{classGarbageCollector_aabb68414b8f72ca07aeb13ff7cc1d060}} 
+\index{Garbage\+Collector@{Garbage\+Collector}!save\+Address@{save\+Address}}
+\index{save\+Address@{save\+Address}!Garbage\+Collector@{Garbage\+Collector}}
+\subsubsection{\texorpdfstring{save\+Address()}{saveAddress()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::save\+Address (\begin{DoxyParamCaption}\item[{int}]{V\+S\+Ptr\+Count,  }\item[{int $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Guarda las direcciones de los \hyperlink{classVSPtr}{V\+S\+Ptr} en un array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+S\+Ptr\+Count} & numero de \hyperlink{classVSPtr}{V\+S\+Ptr} actuales \\
+\hline
+{\em ptr} & direccion del \hyperlink{classVSPtr}{V\+S\+Ptr} por guardar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file V\+S\+Ptr.\+cpp.
+
+
+\begin{DoxyCode}
+42                                                             \{
+43 
+44     GarbageCollector::addess[VSPtrCount-1] = ptr;
+45 
+46     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i< VSPtrCount && GarbageCollector::addess[i] != 0; i++)\{
+47 
+48         cout << \textcolor{stringliteral}{"ADDRESS ("} << i << \textcolor{stringliteral}{") "} << GarbageCollector::addess[i] << endl;
+49     \}
+50     
+51 
+52     
+53 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+V\+S\+Ptr.\+h\item 
+V\+S\+Ptr.\+cpp\end{DoxyCompactItemize}
