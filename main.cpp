@@ -1,4 +1,4 @@
-#include "./VSPointer/VSPtr.cpp"
+#include "./VSPointer/VSPtr.h"
 
 int main(){
     VSPtr<int> ptr(new int());

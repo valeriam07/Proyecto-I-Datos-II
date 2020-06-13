@@ -56,10 +56,10 @@ public:
     string ID = "VSPTR_" + to_string(VSPtrCount);
     GarbageCollector::IDs[VSPtrCount-1] = ID;
 
-    for(int i=0; i< VSPtrCount && GarbageCollector::addess[i] != 0; i++){
+        for(int i=0; i< VSPtrCount && GarbageCollector::addess[i] != 0; i++){
 
-        cout << "ID (" << i << ") " << GarbageCollector::IDs[i] << endl;
-    }
+            cout << "ID (" << i << ") " << GarbageCollector::IDs[i] << endl;
+        }
     
     cout << "_________________________________"<< endl;
     }
@@ -124,7 +124,7 @@ public:
 
         for(int j = 0; j < VSPtrCount ; j++){
                 GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
-            }
+        }
     }
 
     /**
@@ -132,11 +132,9 @@ public:
      * 
      */
     void sendData(){
-        ifstream ifs("data.json");
+        ifstream ifs("/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/data.json");
         json datos;
         ifs >> datos;
-
-        GarbageCollector::setValues();
 
         for(int i = 0; i< VSPtrCount; i++){
             const void * address = static_cast<const void*>(GarbageCollector::addess[0]);
@@ -150,7 +148,7 @@ public:
         }
 
         cout<< "JSON FILE: " << datos << endl;
-
+        
 
     }
 
