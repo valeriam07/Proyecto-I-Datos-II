@@ -82,6 +82,7 @@ string getPassword(){
  */
 void sendIDs(){
     GarbageCollector *g = GarbageCollector::getInstance();
+    GarbageCollector::setValues();
 
     for(int i = 0; i < VSPtrCount; i++ ){
 

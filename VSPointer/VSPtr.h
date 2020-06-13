@@ -125,6 +125,10 @@ public:
         for(int j = 0; j < VSPtrCount ; j++){
                 GarbageCollector::values[j] = *(GarbageCollector::addess[j]);
         }
+
+        for(int j = 0; j < VSPtrCount ; j++){
+                cout <<"DATA (" << j << ") " << GarbageCollector::values[j] << endl;
+        }
     }
 
     /**
@@ -132,8 +136,11 @@ public:
      * 
      */
     void sendData(){
+
         ofstream ifs("/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/data.json");
         json datos;
+
+        GarbageCollector::setValues();
 
         for(int i = 0; i< VSPtrCount; i++){
             const void * address = static_cast<const void*>(GarbageCollector::addess[0]);
@@ -149,8 +156,7 @@ public:
         ifs << datos;
 
         cout<< "JSON FILE: " << datos << endl;
-        
-
+    
     }
 
 private:
@@ -200,6 +206,11 @@ public:
     int key;
     int VSPReference;
 
+    void end(){
+        GarbageCollector *g = GarbageCollector::getInstance();
+        g->sendData();
+    }
+
     /**
      * @brief Construye nuevos objetos de tipo VSPtr
      * 
@@ -217,7 +228,6 @@ public:
         g->saveAddress(VSPtrCount, ptr);
         g->generateID();
         g->references[key] = VSPReference;
-        g->sendData();
     }
     /**
      * @brief destruye el objeto VSPtr
@@ -282,6 +292,9 @@ public:
         cout << "NEW DATA: " << g->values[this->key] << endl;
         return this;
     }
+
+    
 };
+
 
 #endif //VSPOINTER_LIBRARY_H
