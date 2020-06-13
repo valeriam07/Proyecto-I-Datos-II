@@ -208,6 +208,8 @@ public:
     {
         ptr = p; //ptr is the address
         GarbageCollector *g = GarbageCollector::getInstance();
+        //thread t(g->freeMemory);
+        //t.join();
         VSPtrCount++;
         cout << "VSPTR COUNT: " << VSPtrCount << endl;
         key = VSPtrCount - 1;

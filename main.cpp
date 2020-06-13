@@ -5,7 +5,6 @@ int main(){
     *ptr = 20;
     VSPtr<int> ptr2(new int());
     *ptr2 = 30;
-    //thread t(g->freeMemory);
-    //t.join();
+
 
 }
