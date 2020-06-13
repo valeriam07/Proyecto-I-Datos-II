@@ -8,5 +8,4 @@ int main(){
     *ptr2 = 30;
     end();
 
-
 }

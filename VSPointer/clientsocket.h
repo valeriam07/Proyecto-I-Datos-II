@@ -65,12 +65,10 @@ int getPort(){
  * 
  * @return char*, nombre del servidor por verificar
  */
-char* getSName(){
+string getSName(){
     json userData = readJson();          
     string sName = userData["name"];  //Obtener ddel .json
-    char chName[sizeof(sName)];
-    strcpy(chName, sName.c_str());
-    return chName;
+    return sName;
 }
 
 /**
@@ -147,12 +145,12 @@ void sendValues(){
 
     for(int i = 0; i < VSPtrCount; i++ ){
 
-        char a[200];
-        a[sizeof(g->addess[i])];
+        char a[100];
+        string s = to_string(g->values[i]);
 
-        string s = to_string(*(g->addess[i]));
+        std::copy(s.begin(), s.end(), a);   
 
-        std::copy(s.begin(), s.end(), a);    //???
+        cout << a << endl;
         strcat(values, ",");
 
         if(i==0){
@@ -191,8 +189,10 @@ int init_client()
     if (sockfd < 0)
         error("ERROR opening socket");
 
-    if(getSName() == "1"){                  //Verifica el nombre del host
-        server = gethostbyname(getSName());
+    string sName = getSName();
+
+    if(sName == "VSPtrServer"){                  //Verifica el nombre del host
+        server = gethostbyname("1");
     }else {
         cout << "ERROR: NOMBRE INVALIDO";
         close(sockfd);
@@ -251,7 +251,7 @@ int init_client()
         if (n < 0)
             error("ERROR reading from socket");
 
-        printf("Here is the response: %s\n", buffer);
+        
 
 }
 void exec_client(){
