@@ -63,7 +63,6 @@ char* getSName(){
     char chName[sizeof(sName)];
     strcpy(chName, sName.c_str());
     return chName;
-
 }
 
 /**
