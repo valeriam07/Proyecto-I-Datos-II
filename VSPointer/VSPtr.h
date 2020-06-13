@@ -132,9 +132,8 @@ public:
      * 
      */
     void sendData(){
-        ifstream ifs("/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/data.json");
+        ofstream ifs("/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/data.json");
         json datos;
-        ifs >> datos;
 
         for(int i = 0; i< VSPtrCount; i++){
             const void * address = static_cast<const void*>(GarbageCollector::addess[0]);
@@ -146,6 +145,8 @@ public:
             datos["info"][i]["ID"] = GarbageCollector::IDs[i];
             datos["info"][i]["value"] = GarbageCollector::values[i];
         }
+
+        ifs << datos;
 
         cout<< "JSON FILE: " << datos << endl;
         
