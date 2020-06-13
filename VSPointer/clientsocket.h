@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <netdb.h> 
 #include <iostream>
-#include "VSPtr.h"
+#include "/home/valeria/Documents/Proyecto-I-Datos-II/VSPointer/VSPtr.h"
 #include <sstream>
 #include "/home/valeria/Downloads/json-develop/single_include/nlohmann/json.hpp"
 
@@ -29,17 +29,25 @@ void error(const char *msg)
     exit(0);
 }
 
+
 /**
  * @brief lee el archivo .json que contiene los datos del servidor ingresados por el usuario
  * 
  * @return json que contiene la informacion del servidor ingresada por el usuario
  */
 json readJson(){
-    ifstream ifs("../UserData.json");
+    ifstream ifs("/home/valeria/Documents/Proyecto-I-Datos-II/UserData.json");
     json userData;
     ifs >> userData;
     return userData;
 }
+
+bool ifServer(){
+    json userData = readJson();
+    bool ifServer = userData["ifServer"];
+    return ifServer;
+}
+
 
 /**
  * @brief obtiene el puerto ingresado por el usuario
@@ -82,7 +90,6 @@ string getPassword(){
  */
 void sendIDs(){
     GarbageCollector *g = GarbageCollector::getInstance();
-    GarbageCollector::setValues();
 
     for(int i = 0; i < VSPtrCount; i++ ){
 
@@ -247,4 +254,16 @@ int init_client()
         printf("Here is the response: %s\n", buffer);
 
 }
+void exec_client(){
+    if(ifServer() == true){
+            init_client();
+    }
+}
+
+void end(){
+        GarbageCollector *g = GarbageCollector::getInstance();
+        g->sendData();
+        exec_client();
+    }
+
 

@@ -206,11 +206,6 @@ public:
     int key;
     int VSPReference;
 
-    void end(){
-        GarbageCollector *g = GarbageCollector::getInstance();
-        g->sendData();
-    }
-
     /**
      * @brief Construye nuevos objetos de tipo VSPtr
      * 
@@ -295,6 +290,5 @@ public:
 
     
 };
-
 
 #endif //VSPOINTER_LIBRARY_H
